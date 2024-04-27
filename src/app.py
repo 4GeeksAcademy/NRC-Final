@@ -90,8 +90,8 @@ def get_user(user_id):
     if user is None:
         raise APIException('user not found', status_code=404) 
 
-    planet_json = {'id': user.id, 'email': user.email, 'rol': user.rol, 'is_active': user.is_active}
-    return jsonify(planet_json)
+    user_json = {'id': user.id, 'email': user.email, 'rol': user.rol, 'is_active': user.is_active}
+    return jsonify(user_json)
 
 
 @app.route('/<path:path>', methods=['GET'])
