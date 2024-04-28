@@ -6,10 +6,13 @@ from flask import Flask, request, jsonify, url_for, send_from_directory
 from flask_migrate import Migrate
 from flask_swagger import swagger
 from api.utils import APIException, generate_sitemap
-from api.models import db, User
+from api.models import db, User, User_profile
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
+from datetime import timedelta
+from flask_cors import CORS
 
 # from models import Person
 
@@ -19,6 +22,10 @@ static_file_dir = os.path.join(os.path.dirname(
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
+CORS(app)
+
+app.config["JWT_SECRET_KEY"] = "super-secret"  
+jwt = JWTManager(app)
 
 # database condiguration
 db_url = os.getenv("DATABASE_URL")
@@ -59,6 +66,8 @@ def sitemap():
 
 # any other endpoint will try to serve it like a static file
 
+#Endpoints usuario
+
 @app.route('/user', methods=['POST'])
 def add_user():
     data = request.get_json()
@@ -90,8 +99,107 @@ def get_user(user_id):
     if user is None:
         raise APIException('user not found', status_code=404) 
 
-    user_json = {'id': user.id, 'email': user.email, 'rol': user.rol, 'is_active': user.is_active}
+    user_json = {'id': user.id,
+                'email': user.email,
+                'rol': user.rol,
+                'is_active': user.is_active}
     return jsonify(user_json)
+
+#endpoints User_profile
+
+@app.route('/userProfile/<int:user_id>', methods=['POST'])
+def add_user_profile(user_id):
+    data = request.get_json()
+    if 'name' not in data or 'last_name' not in data:
+        raise APIException('all fields are required', status_code=400)
+
+    new_user_profile = User_profile(
+            name=data['name'], 
+            last_name=data['last_name'], 
+            age=data['age'],
+            sex=data['sex'],
+            height=data['height'],
+            injury=data.get('injury'),
+            additional_info=data['additional_info'],
+            user_id=user_id
+    )
+
+    db.session.add(new_user_profile)
+    db.session.commit()
+
+    return jsonify({'message': 'User added'}), 201 
+
+@app.route('/userProfile/<int:user_id>', methods=['PUT'])
+def update_user(user_id):
+    try:
+        data = request.get_json()
+        user = User_profile.query.filter_by(user_id=user_id).first()
+        if user is None:
+            raise APIException('User not found', status_code=404)
+
+        if 'name' in data:
+            user.name = data['name']
+        if 'last_name' in data:
+            user.last_name = data['last_name']
+        if 'age' in data:
+            user.age = data['age']
+        if 'sex' in data:
+            user.sex = data['sex']
+        if 'height' in data:
+            user.height = data['height']
+        if 'injury' in data:
+            user.injury = data['injury']
+        if 'additional_info' in data:
+            user.additional_info = data['additional_info'] 
+        db.session.commit()
+        return jsonify({'message': 'User updated'})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
+    
+@app.route('/userProfile/<int:user_id>', methods=['GET'])
+def get_user_profile(user_id):
+    user = User_profile.query.filter_by(user_id=user_id).first()
+    if user is None:
+        raise APIException('user not found', status_code=404) 
+
+    user_profile_json = {'name': user.name,
+                        'last_name': user.last_name,
+                        'age': user.age,
+                        'sex': user.sex,
+                        'height': user.height,
+                        'injury': user.injury,
+                        'additional_info': user.additional_info,
+                        'user_id': user.user_id}
+    return jsonify(user_profile_json)
+
+
+#endpoints login
+
+@app.route("/login", methods=["POST"])
+def login():
+    data = request.json
+    email = data['email']
+    password = data['password']
+
+    user = User.query.filter_by(email = email).first()
+
+    if not user:
+        raise APIException('User doesnt exist', status_code=400)
+
+    if email != user.email or password != user.password:
+        return jsonify({"msg": "Bad email or password"}), 401
+    
+    expire_time = timedelta(seconds = 60) #solo para pruebas de acceso, después hay que modificarlo
+
+    access_token = create_access_token(identity=email, expires_delta = expire_time)
+    return jsonify(access_token=access_token)
+
+@app.route("/private", methods=["GET"])
+@jwt_required()
+def protected():
+    current_user = get_jwt_identity()
+    return jsonify(logged_in_as=current_user), 200
 
 
 @app.route('/<path:path>', methods=['GET'])

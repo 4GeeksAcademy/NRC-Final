@@ -41,10 +41,9 @@ class User_profile(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "age" : self.age,
             "last_name" : self.last_name,
             "age" : self.age,
-            "height" : self.age,
+            "height" : self.height,
             "sex" : self.sex,
             "injury" : self.injury,
             "user_id" : self.user_id,
