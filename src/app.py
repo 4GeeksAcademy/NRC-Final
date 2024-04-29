@@ -6,7 +6,7 @@ from flask import Flask, request, jsonify, url_for, send_from_directory
 from flask_migrate import Migrate
 from flask_swagger import swagger
 from api.utils import APIException, generate_sitemap
-from api.models import db
+from api.models import db, User
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
@@ -18,6 +18,7 @@ static_file_dir = os.path.join(os.path.dirname(
     os.path.realpath(__file__)), '../public/')
 app = Flask(__name__)
 app.url_map.strict_slashes = False
+
 
 # database condiguration
 db_url = os.getenv("DATABASE_URL")
@@ -58,6 +59,40 @@ def sitemap():
 
 # any other endpoint will try to serve it like a static file
 
+@app.route('/user', methods=['POST'])
+def add_user():
+    data = request.get_json()
+    if 'email' not in data or 'password' not in data:
+        raise APIException('all fields are required', status_code=400)
+
+    new_user = User(
+            email=data['email'], 
+            password=data['password'], 
+            rol=data['rol'],
+            is_active=data.get('is_active',True)
+    )
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    return jsonify({'message': 'User added'}), 201 
+
+@app.route('/user', methods=['GET'])
+def get_all_users():
+    users = User.query.all()
+    user_json = [user.serialize() for user in users]
+
+    return jsonify(user_json), 200
+
+@app.route('/user/<int:user_id>', methods=['GET'])
+def get_user(user_id):
+    user = User.query.get(user_id) 
+    if user is None:
+        raise APIException('user not found', status_code=404) 
+
+    planet_json = {'id': user.id, 'email': user.email, 'rol': user.rol, 'is_active': user.is_active}
+    return jsonify(planet_json)
+
 
 @app.route('/<path:path>', methods=['GET'])
 def serve_any_other_file(path):
@@ -66,6 +101,8 @@ def serve_any_other_file(path):
     response = send_from_directory(static_file_dir, path)
     response.cache_control.max_age = 0  # avoid cache memory
     return response
+
+
 
 
 # this only runs if `$ python src/main.py` is executed
