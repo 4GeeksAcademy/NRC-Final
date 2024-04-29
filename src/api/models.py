@@ -35,7 +35,7 @@ class User_profile(db.Model):
     user = db.relationship("User", backref = db.backref('user_profile', lazy=True))
 
     def __repr__(self):
-        return f'<User {self.name}>'
+        return f'<User_profile {self.name}>'
 
     def serialize(self):
         return {
@@ -48,4 +48,19 @@ class User_profile(db.Model):
             "injury" : self.injury,
             "user_id" : self.user_id,
             "additional_info" : self.additional_info
+        }
+    
+class Video(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    exercise_name = db.Column(db.String(120), unique=True, nullable=False)
+    url = db.Column(db.String(200), unique=True, nullable=False)
+
+    def __repr__(self):
+        return f'<Video {self.exercise_name}>'
+    
+    def serialize(self):
+        return {
+            "id": self.id,
+            "exercise_name": self.exercise_name,
+            "url": self.url
         }
