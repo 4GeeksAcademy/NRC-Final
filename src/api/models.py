@@ -64,3 +64,24 @@ class Video(db.Model):
             "exercise_name": self.exercise_name,
             "url": self.url
         }
+    
+class Contact_msj(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    to = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)
+    from_user = db.Column(db.String(50), unique=False, nullable=False)
+    email = db.Column(db.String(50), unique=False, nullable=False)
+    comment = db.Column(db.String(250), unique=False, nullable=False)
+
+    user = db.relationship("User", backref = db.backref('contact_msj', lazy=True))
+
+    def __repr__(self):
+        return f'<Contact_msj {self.email}>'
+    
+    def serialize(self):
+        return {
+            "id": self.id,
+            "to": self.to,
+            "from_user": self.from_user,
+            "email": self.email,
+            "comment": self.comment
+        }
