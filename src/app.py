@@ -6,7 +6,7 @@ from flask import Flask, request, jsonify, url_for, send_from_directory
 from flask_migrate import Migrate
 from flask_swagger import swagger
 from api.utils import APIException, generate_sitemap
-from api.models import db, User, User_profile
+from api.models import db, User, User_profile, Video
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
@@ -202,6 +202,62 @@ def protected():
     return jsonify(logged_in_as=current_user), 200
 
 
+#endpoints videos
+
+@app.route('/video', methods=['POST'])
+def add_video():
+    data = request.get_json()
+    if 'exercise_name' not in data or 'url' not in data:
+        raise APIException('all fields are required', status_code=400)
+
+    new_video = Video(
+            exercise_name=data['exercise_name'], 
+            url=data['url'] 
+    )
+
+    db.session.add(new_video)
+    db.session.commit()
+
+    return jsonify({'message': 'Video added'}), 201 
+
+@app.route('/video/<int:video_id>', methods=['GET'])
+def get_video(video_id):
+    video = Video.query.get(video_id) 
+    if video is None:
+        raise APIException('video not found', status_code=404) 
+
+    video_json = {'id': video.id,
+                'exercise_name': video.exercise_name,
+                'url': video.url}
+    return jsonify(video_json)
+
+@app.route('/video', methods=['GET'])
+def get_all_videos():
+    videos = Video.query.all()
+    video_json = [video.serialize() for video in videos]
+
+    return jsonify(video_json), 200
+
+@app.route('/video/<int:video_id>', methods=['PUT'])
+def update_video(video_id):
+    try:
+        data = request.get_json()
+        video = Video.query.filter_by(id=video_id).first()
+        if video is None:
+            raise APIException('Video not found', status_code=404)
+
+        if 'exercise_name' in data:
+            video.exercise_name = data['exercise_name']
+        if 'url' in data:
+            video.url = data['url'] 
+        db.session.commit()
+        return jsonify({'message': 'Video updated'})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
+
+
+
 @app.route('/<path:path>', methods=['GET'])
 def serve_any_other_file(path):
     if not os.path.isfile(os.path.join(static_file_dir, path)):
@@ -209,6 +265,7 @@ def serve_any_other_file(path):
     response = send_from_directory(static_file_dir, path)
     response.cache_control.max_age = 0  # avoid cache memory
     return response
+
 
 
 
