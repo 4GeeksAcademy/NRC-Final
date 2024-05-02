@@ -183,6 +183,7 @@ def login():
     password = data['password']
 
     user = User.query.filter_by(email = email).first()
+    user_rol = user.rol
 
     if not user:
         raise APIException('User doesnt exist', status_code=400)
@@ -191,8 +192,9 @@ def login():
         return jsonify({"msg": "Bad email or password"}), 401
     
     expire_time = timedelta(seconds = 60) #solo para pruebas de acceso, después hay que modificarlo
-
-    access_token = create_access_token(identity=email, expires_delta = expire_time)
+    rol = {"rol": user_rol}
+    
+    access_token = create_access_token(identity=email, expires_delta = expire_time, additional_claims=rol)
     return jsonify(access_token=access_token)
 
 @app.route("/private", methods=["GET"])

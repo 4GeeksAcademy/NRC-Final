@@ -27,7 +27,7 @@ class User_profile(db.Model):
     last_name = db.Column(db.String(80), unique=False, nullable=False)
     age = db.Column(db.Integer, unique=False, nullable=False)
     height = db.Column(db.Integer, unique=False, nullable=False )
-    sex = db.Column(db.String(20), unique=False, nullable=False)
+    genre = db.Column(db.String(20), unique=False, nullable=False)
     injury = db.Column(db.Boolean(), unique=False, nullable=False) 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)
     additional_info = db.Column(db.String(400), unique=False, nullable=False)
