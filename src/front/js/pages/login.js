@@ -13,7 +13,7 @@ export const Login = () => {
 
     const login = async () => {
 		try {
-			const response = await fetch("https://friendly-space-capybara-7x7j764wg7gfrg7q-3001.app.github.dev/login", {
+			const response = await fetch(`${process.env.BACKEND_URL}/login`, {
 				method: "POST",
 				body: JSON.stringify(user),
 				headers: { "Content-Type": "application/json" }
@@ -39,7 +39,7 @@ export const Login = () => {
 		const token = JSON.parse(localStorage.getItem("access"))
 		const access_key = token.access_token
         try {
-            const response = await fetch("https://friendly-space-capybara-7x7j764wg7gfrg7q-3001.app.github.dev/login", {
+            const response = await fetch(`${process.env.BACKEND_URL}/login`, {
 				method: "GET",
 				headers: { "Authorization": `Bearer ${access_key}` }
 			});
