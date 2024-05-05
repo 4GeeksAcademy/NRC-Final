@@ -67,7 +67,7 @@ class Video(db.Model):
     
 class Contact_msj(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    to = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)
+    to = db.Column(db.Integer, db.ForeignKey('user.id'), unique=False, nullable=False)
     from_user = db.Column(db.String(50), unique=False, nullable=False)
     email = db.Column(db.String(50), unique=False, nullable=False)
     comment = db.Column(db.String(250), unique=False, nullable=False)
