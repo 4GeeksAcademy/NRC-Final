@@ -1,22 +1,25 @@
-/* import React, { useState } from "react";
-import {InlineWidget} from 'react-calendly'
+import React from "react";
+import { useCalendlyEventListener, InlineWidget } from "react-calendly";
 
-class Calendly extends Component {
-  componentDidMount() {
-    // whatever stuff you need here
-  }
-  componentWillUnmount() {
-    // whatever cleanup stuff you need here
-  }
-  render(){
-    return (
-      <div>
-        <InlineWidget url="https://calendly.com/nrcaplications/30min" />
-      </div>
-    );
-  }
-}
+const Calendly = () => {
 
-export default Calendly; */
+  return (
+    <div className="App">
+      <InlineWidget url="https://calendly.com/nrcaplications/revision"
+      styles={{
+        height: '1000px'
+      }}
+      pageSettings={{
+        backgroundColor: '252C44',
+        hideEventTypeDetails: false,
+        hideLandingPageDetails: false,
+        primaryColor: '00a2ff',
+        textColor: 'fbfbfb'
+      }}
+      />
+    </div>
+  );
+};
 
-/* ESTO ES UNA PRUEBA */
+export default Calendly;
+
