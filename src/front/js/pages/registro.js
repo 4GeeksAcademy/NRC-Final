@@ -25,7 +25,7 @@ export const Registro = () => {
 
         
      const sendFormData = (email,password) => {
-          fetch("https://glorious-guacamole-4jw4vwp5jvr3776w-3001.app.github.dev/user", {
+          fetch(`${process.env.BACKEND_URL}/user`, {
             method: "POST",
             body: JSON.stringify({
                 "email":email,

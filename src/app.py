@@ -6,7 +6,7 @@ from flask import Flask, request, jsonify, url_for, send_from_directory
 from flask_migrate import Migrate
 from flask_swagger import swagger
 from api.utils import APIException, generate_sitemap
-from api.models import db, User, User_profile, Video
+from api.models import db, User, User_profile, Video, Contact_msj
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
@@ -258,6 +258,33 @@ def update_video(video_id):
         db.session.rollback()
         return jsonify({'error': str(e)}), 500
 
+#endpoints formulario
+
+@app.route('/contact_form', methods=['POST'])
+def add_msj():
+    data = request.get_json()
+    if 'from_user' not in data or 'email' not in data or 'comment' not in data:
+        raise APIException('all fields are required', status_code=400)
+
+    new_msj = Contact_msj(
+            to=1,
+            from_user=data['from_user'], 
+            email=data['email'],
+            comment=data['comment'] 
+    )
+
+    db.session.add(new_msj)
+    db.session.commit()
+
+    return jsonify({'message': 'Msj added'}), 201 
+
+@app.route('/contact_form', methods=['GET'])
+# @jwt_required() comentado durante las pruebas
+def get_all_msj():
+    messages = Contact_msj.query.all()
+    message_json = [message.serialize() for message in messages]
+
+    return jsonify(message_json), 200
 
 
 @app.route('/<path:path>', methods=['GET'])
