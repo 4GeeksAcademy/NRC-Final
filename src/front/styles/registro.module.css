@@ -5,11 +5,11 @@
 body {
   margin: 0;
   line-height:normal;
-  background-image: url('https://scontent-bcn1-1.xx.fbcdn.net/v/t39.30808-6/326342168_852036582572276_1342480683664754514_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=n2nnHxnfdZ0Q7kNvgGEXlO8&_nc_ht=scontent-bcn1-1.xx&oh=00_AfCJ5gfVGryV_HG0bBCqA2Li1fylsRFN3sDaBr5bToupaQ&oe=66392196');
   background-size: cover;
   background-position:top;
-
+  background-image: url('https://scontent-bcn1-1.xx.fbcdn.net/v/t39.30808-6/326342168_852036582572276_1342480683664754514_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=n2nnHxnfdZ0Q7kNvgGEXlO8&_nc_ht=scontent-bcn1-1.xx&oh=00_AfCJ5gfVGryV_HG0bBCqA2Li1fylsRFN3sDaBr5bToupaQ&oe=66392196');
 }
+
 
 .email,
 .contraseña,
@@ -60,6 +60,7 @@ body {
   height: 430px;
   border-radius: 40px;
   background: linear-gradient(rgba(214, 101, 41, 0.678), #1c1c1c, rgba(255, 255, 255, 0.05));
+
 }
 
 .customInput{
@@ -71,6 +72,7 @@ body {
   z-index: 2;
   margin-top: 35px;
 }
+
 
 
 
