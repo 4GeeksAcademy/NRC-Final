@@ -286,6 +286,17 @@ def get_all_msj():
 
     return jsonify(message_json), 200
 
+@app.route('/contact_form/<int:msj_id>', methods=['DELETE'])
+def delete_msj(msj_id):
+    try:
+        msj = Contact_msj.query.get(msj_id)
+        db.session.delete(msj)
+        db.session.commit()
+        return jsonify({'message': 'Message erased'})
+    except Exception as e:
+        db.session.rollback()
+        raise APIException('error', status_code=500)
+
 
 @app.route('/<path:path>', methods=['GET'])
 def serve_any_other_file(path):
@@ -294,6 +305,8 @@ def serve_any_other_file(path):
     response = send_from_directory(static_file_dir, path)
     response.cache_control.max_age = 0  # avoid cache memory
     return response
+
+
 
 
 

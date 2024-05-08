@@ -70,7 +70,7 @@ class Contact_msj(db.Model):
     to = db.Column(db.Integer, db.ForeignKey('user.id'), unique=False, nullable=False)
     from_user = db.Column(db.String(50), unique=False, nullable=False)
     email = db.Column(db.String(50), unique=False, nullable=False)
-    comment = db.Column(db.String(250), unique=False, nullable=False)
+    comment = db.Column(db.String(600), unique=False, nullable=False)
 
     user = db.relationship("User", backref = db.backref('contact_msj', lazy=True))
 
