@@ -1,0 +1,14 @@
+.message_card {
+    color: white;
+    background: linear-gradient(rgba(214, 101, 41, 0.678), #1c1c1c, rgba(255, 255, 255, 0.05));
+    border: none;
+}
+
+.button {
+    border-radius: 25px;
+    background-color: #fb6514;
+    width: 150px;
+    height: 49px;
+    color: #fff;
+    font-family: Montserrat;
+}
