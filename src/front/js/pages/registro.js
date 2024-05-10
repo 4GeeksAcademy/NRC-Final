@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState , useContext} from "react";
 import styles from "../../styles/registro.module.css";
 import { Link } from "react-router-dom";
+
 
 export const Registro = () => {
    
