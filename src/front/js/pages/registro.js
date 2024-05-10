@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState , useContext} from "react";
 import styles from "../../styles/registro.module.css";
+import { Link } from "react-router-dom";
+
 
 export const Registro = () => {
    
@@ -52,7 +54,6 @@ export const Registro = () => {
     };
 
     return( 
-
       <div className={styles.forms}>
         <div className={styles.registro}>
              <h2>Registro</h2>
@@ -70,11 +71,12 @@ export const Registro = () => {
                     <input type="password" name="confirmPassword" value={confirmPassword} onChange={handleChangeConfirm} className={`${styles.customInput} `} id="password1Id" placeholder="Repetir contraseña" required/>
                  </div>
                     <button type="submit" className={styles.button}>Registrarse  <i className="fas fa-long-arrow-alt-right"></i></button>
-                <div className={styles.yaEresUsuario}>¿Ya eres usuario? Accede</div>
+                   <Link to="/login">
+                      <div className={styles.yaEresUsuario}>¿Ya eres usuario? Accede</div>
+                  </Link>
             </form>
         </div>
         </div>
-
    
     );
 };
