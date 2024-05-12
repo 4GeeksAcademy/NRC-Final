@@ -2,14 +2,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
 
-body {
+/* body {
   line-height:normal;
   background: linear-gradient(#0A0E1C, #252C44, #0A0D17);
   background-size: cover;
   background-position:top;
 
+} */
+.contactBody{
+  width: 100vw; /* Ancho del viewport */
+  height: 100vh; /* Alto del viewport */
+  display: flex; /* Para que los hijos se expandan */
+  justify-content: center; /* Centra los hijos horizontalmente */
+  align-items: center; /* Centra los hijos verticalmente */
 }
-
 
 .camposContact{
   top: 131px;
@@ -58,6 +64,10 @@ body {
   text-align: center;
   color: white;
   font-family: Montserrat;
+  line-height:normal;
+  background: linear-gradient(#0A0E1C, #252C44, #0A0D17);
+  background-size: cover;
+  background-position:top;
 }
 
 .formulario_contacto{
