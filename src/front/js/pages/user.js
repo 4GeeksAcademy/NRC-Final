@@ -17,16 +17,18 @@ export const User = () => {
     });
 
     const handleInputChange = (e) => {
+        e.preventDefault();
         const { name, value } = e.target;
         setUserData({
             ...userData,
             [name]: value
         });
+        console.log(userData);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('https://ejemplo.com/api/usuarios', {
+        fetch(`${process.env.BACKEND_URL}/userProfile/1`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -55,13 +57,13 @@ export const User = () => {
                                 <div className={styles.titulo}>
                                     <h2>DATOS PERSONALES</h2>
                                     <div className={styles.datos}>
-                                        <input type="text" className={styles.input} placeholder="Nombre:" value={userData.nombre} onChange={handleInputChange} />
-                                        <input type="text" className={styles.input} placeholder="Apellidos:" value={userData.apellidos} onChange={handleInputChange} />
-                                        <input type="number" className={styles.input} placeholder="Edad:" value={userData.edad} onChange={handleInputChange} />
-                                        <input type="number" className={styles.input} placeholder="Altura:" value={userData.altura} onChange={handleInputChange} />
-                                        <input type="text" className={styles.input} placeholder="Sexo:" value={userData.sexo} onChange={handleInputChange} />
-                                        <input type="text" className={styles.input} placeholder="Lesión:" value={userData.lesion} onChange={handleInputChange} />
-                                        <input type="text" className={styles.input} placeholder="Información Adicional:" value={userData.informacionAdicional} onChange={handleInputChange} />
+                                        <input type="text" className={styles.input} placeholder="Nombre:" name="nombre" value={userData.nombre} onChange={handleInputChange} />
+                                        <input type="text" className={styles.input} placeholder="Apellidos:" name="apellidos" value={userData.apellidos} onChange={handleInputChange} />
+                                        <input type="number" className={styles.input} placeholder="Edad:" name="edad" value={userData.edad} onChange={handleInputChange} />
+                                        <input type="number" className={styles.input} placeholder="Altura:" name="altura" value={userData.altura} onChange={handleInputChange} />
+                                        <input type="text" className={styles.input} placeholder="Sexo:" name="sexo" value={userData.sexo} onChange={handleInputChange} />
+                                        <input type="boolean" className={styles.input} placeholder="Lesión:" name="lesion" value={userData.lesion} onChange={handleInputChange} />
+                                        <input type="text" className={styles.input} placeholder="Información Adicional:" name="informacionAdicional" value={userData.informacionAdicional} onChange={handleInputChange} />
                                         <button type="submit" className={styles.guardar}>Guardar</button>
                                     </div>
                                     <div className={styles.card1}>
