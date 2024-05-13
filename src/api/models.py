@@ -9,6 +9,8 @@ class User(db.Model):
     rol = db.Column(db.String(5), unique=False, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
 
+    user_profile = db.relationship("User_profile", backref = db.backref('user', lazy=True))
+
     def __repr__(self):
         return f'<User {self.email}>'
 
@@ -31,8 +33,6 @@ class User_profile(db.Model):
     injury = db.Column(db.Boolean(), unique=False, nullable=False) 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)
     additional_info = db.Column(db.String(400), unique=False, nullable=False)
-
-    user = db.relationship("User", backref = db.backref('user_profile', lazy=True))
 
     def __repr__(self):
         return f'<User_profile {self.name}>'
