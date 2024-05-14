@@ -9,6 +9,8 @@ class User(db.Model):
     rol = db.Column(db.String(5), unique=False, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
 
+    user_profile = db.relationship("User_profile", backref = db.backref('user', lazy=True))
+
     def __repr__(self):
         return f'<User {self.email}>'
 
@@ -32,8 +34,6 @@ class User_profile(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)
     additional_info = db.Column(db.String(400), unique=False, nullable=False)
 
-    user = db.relationship("User", backref = db.backref('user_profile', lazy=True))
-
     def __repr__(self):
         return f'<User_profile {self.name}>'
 
@@ -44,10 +44,15 @@ class User_profile(db.Model):
             "last_name" : self.last_name,
             "age" : self.age,
             "height" : self.height,
-            "sex" : self.sex,
+            "genre" : self.genre,
             "injury" : self.injury,
             "user_id" : self.user_id,
-            "additional_info" : self.additional_info
+            "additional_info" : self.additional_info,
+            "user" : {
+                "email" : self.user.email,
+                "rol" : self.user.rol,
+                "is_active" : self.user.is_active
+            }
         }
     
 class Video(db.Model):
