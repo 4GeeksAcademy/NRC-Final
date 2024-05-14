@@ -117,7 +117,7 @@ def add_user_profile(user_id):
             name=data['name'], 
             last_name=data['last_name'], 
             age=data['age'],
-            sex=data['sex'],
+            genre=data['genre'],
             height=data['height'],
             injury=data.get('injury'),
             additional_info=data['additional_info'],
@@ -143,8 +143,8 @@ def update_user(user_id):
             user.last_name = data['last_name']
         if 'age' in data:
             user.age = data['age']
-        if 'sex' in data:
-            user.sex = data['sex']
+        if 'genre' in data:
+            user.genre = data['genre']
         if 'height' in data:
             user.height = data['height']
         if 'injury' in data:
@@ -166,12 +166,25 @@ def get_user_profile(user_id):
     user_profile_json = {'name': user.name,
                         'last_name': user.last_name,
                         'age': user.age,
-                        'sex': user.sex,
+                        'genre': user.genre,
                         'height': user.height,
                         'injury': user.injury,
                         'additional_info': user.additional_info,
-                        'user_id': user.user_id}
+                        'user_id': user.user_id,
+                        'user' : {
+                            'email' : user.user.email,
+                            'rol' : user.user.rol,
+                            'is_active' : user.user.is_active
+                        }
+                        }
     return jsonify(user_profile_json)
+
+@app.route('/userProfile', methods=['GET'])
+def get_all_usersProfile():
+    usersProfile = User_profile.query.all()
+    profile_json = [profile.serialize() for profile in usersProfile]
+
+    return jsonify(profile_json), 200
 
 
 #endpoints login

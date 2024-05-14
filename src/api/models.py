@@ -44,10 +44,15 @@ class User_profile(db.Model):
             "last_name" : self.last_name,
             "age" : self.age,
             "height" : self.height,
-            "sex" : self.sex,
+            "genre" : self.genre,
             "injury" : self.injury,
             "user_id" : self.user_id,
-            "additional_info" : self.additional_info
+            "additional_info" : self.additional_info,
+            "user" : {
+                "email" : self.user.email,
+                "rol" : self.user.rol,
+                "is_active" : self.user.is_active
+            }
         }
     
 class Video(db.Model):
