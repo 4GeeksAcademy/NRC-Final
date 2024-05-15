@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import styles from "../../styles/user.module.css";
 import Calendly from "../component/calendar";
@@ -15,6 +15,25 @@ export const User = () => {
         lesion: "",
         informacionAdicional: ""
     });
+
+    const [videos, setVideos] = useState([]);
+
+    useEffect(() => {
+        fetch(`${process.env.BACKEND_URL}/video`)
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Error al obtener los videos del servidor');
+                }
+            })
+            .then(data => {
+                setVideos(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }, []);
 
     const handleInputChange = (e) => {
         e.preventDefault();
@@ -62,13 +81,27 @@ export const User = () => {
                                         <input type="number" className={styles.input} placeholder="Edad:" name="edad" value={userData.edad} onChange={handleInputChange} />
                                         <input type="number" className={styles.input} placeholder="Altura:" name="altura" value={userData.altura} onChange={handleInputChange} />
                                         <input type="text" className={styles.input} placeholder="Sexo:" name="sexo" value={userData.sexo} onChange={handleInputChange} />
-                                        <input type="boolean" className={styles.input} placeholder="Lesión:" name="lesion" value={userData.lesion} onChange={handleInputChange} />
+                                        <input type="text" className={styles.input} placeholder="Lesión:" name="lesion" value={userData.lesion} onChange={handleInputChange} />
                                         <input type="text" className={styles.input} placeholder="Información Adicional:" name="informacionAdicional" value={userData.informacionAdicional} onChange={handleInputChange} />
                                         <button type="submit" className={styles.guardar}>Guardar</button>
                                     </div>
                                     <div className={styles.card1}>
                                         <div className={styles.titulo1}>
                                             <h2>VISTA DE CONTENIDO</h2>
+                                            <ul className={styles.videoList}>
+                                                {videos.map(video => (
+                                                    <li key={video.id} className={styles.videoItem}>
+                                                        <iframe 
+                                                            src={`https://www.youtube.com/embed/${video.url.split('v=')[1]}?autoplay=0&controls=0&showinfo=0&rel=0`} 
+                                                            className={styles.videoThumbnail} 
+                                                            frameBorder="0" 
+                                                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                                                            allowFullScreen>
+                                                        </iframe>
+                                                        <a href={video.url} target="_blank" rel="noopener noreferrer" className={styles.videoLink}>{video.exercise_name}</a>
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>

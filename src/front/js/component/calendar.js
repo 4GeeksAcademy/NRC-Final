@@ -8,13 +8,14 @@ const Calendly = () => {
       <InlineWidget url="https://calendly.com/nrcaplications/revision"
       styles={{
         height: '1000px'
+        
       }}
       pageSettings={{
-        backgroundColor: '252C44',
+        backgroundColor: '101420',
         hideEventTypeDetails: false,
         hideLandingPageDetails: false,
-        primaryColor: '00a2ff',
-        textColor: 'fbfbfb'
+        primaryColor: 'e97333',
+        textColor: 'e97333'
       }}
       />
     </div>

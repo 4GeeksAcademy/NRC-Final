@@ -8,12 +8,13 @@
     width: 600px;
     height: 300px;
     border-radius: 40px;
-    margin-top: 100px;
+    margin-top: 90px;
+   
 }
 
 
 .card{
-    background: linear-gradient(to top,rgba(214, 102, 41, 0.61),  #1c1c1c58 ,  #0a0e1a2b );
+    background: linear-gradient(to top,#d666299c,  #1c1c1c58 ,  #161e363c );
 }
 
 
@@ -48,14 +49,14 @@
     margin-top: 6px;
     margin-left: 40px;
     width: 500px;
-    background: linear-gradient(to right, rgba(247, 109, 34, 0.801), #1c1c1c00,  #0a0e1a4b);
+    background: linear-gradient(to right, rgba(247, 109, 34, 0.801), rgba(28, 28, 28, 0),  #0a0e1a4b);
     border-style: double;
 }
 
 .guardar{
     margin-top: 5px;
     border-radius: 25px;
-    background-color: rgba(247, 109, 34, 0.801);
+    background-color: #f76d22cc;
     color: #fff;
     font-family: Montserrat;
     margin-left: 250px;
@@ -70,8 +71,27 @@
 }
 
 
-    
+.videoItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.videoThumbnail {
+    width: 200px; 
+    height: 60px; 
+    margin-right: 180px;
+    padding-left: 40px;
+}
+
+.videoLink {
+    color: #ff730e;
+}
+
+
    
+
+
 
 
 
