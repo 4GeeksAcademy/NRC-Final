@@ -1,27 +1,67 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
+
+import styles from "../../styles/navbar.module.css";
 
 export const Navbar = () => {
-	return (
-		<nav className="navbar navbar-light bg-light">
-			<div className="container">
-				<Link to="/">
-					<span className="navbar-brand mb-0 h1">Home</span>
-				</Link>
-				<Link to="/user">
-					<span className="navbar-brand mb-0 h1">User</span>
-				</Link>
+	const navigate = useNavigate();
+	const { store, actions } = useContext(Context);
+	const [isLogged, setIsLogged] = useState(false);
 
-				<div className="ml-auto">
-					<Link to="/contact">
-						<button className="btn btn-primary">Contacto</button>
-					</Link>
-					<Link to="/login">
-						<button className="btn btn-primary">Login</button>
-					</Link>
-					<Link to="/registro">
-						<button className="btn btn-primary">Registro</button>
-					</Link>
+	const logout = () => {
+		actions.logout();
+	}
+
+	useEffect(() => {
+		if (store.token && store.token.length > 0) {
+			setIsLogged(true); 
+		  } else {
+			setIsLogged(false);
+		  }
+	  }, [store.token]);
+
+	return (
+		<nav className="navbar navbar-dark navbar-expand-md bg-dark">
+			<div className="container-fluid">
+				<div>
+					<span className="navbar-brand ms-2 h2" onClick={() => navigate('/')}>Logo</span>
+				</div>
+				<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					<span className="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div className="container text-center">
+						<div className="row justify-content-center">
+							<div className="col-2">
+								<span className="navbar-brand h4" onClick={() => navigate('/')}>Inicio</span>
+							</div>
+							<div className="col-2">
+								<span className="navbar-brand h4" onClick={() => navigate('/')}>Servicios</span>
+							</div>
+							<div className="col-2">
+								<span className="navbar-brand h4" onClick={() => navigate('/contact')}>Contacto</span>
+							</div>
+							<div className="col-2">
+								<span className="navbar-brand h4" onClick={() => navigate('/')}>Sobre mi</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div>
+					{isLogged ? (
+							<button className={`btn me-2 px-4 ${styles.loginButton}`} onClick={() => logout}>Logout</button>
+					) : (
+						<>
+							<Link to="/registro">
+								<button className={`btn me-3 ${styles.registerButton}`}>Registro</button>
+							</Link>
+							<Link to="/login">
+								<button className={`btn me-2 px-4 ${styles.loginButton}`}>Login</button>
+							</Link>
+						</>
+					)}
 				</div>
 			</div>
 		</nav>

@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			messages: [],
+			token: JSON.parse(localStorage.getItem("token")) || [],
 			demo: [
 				{
 					title: "FIRST",
@@ -24,6 +25,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.error(error);
 				}
+			},
+
+			logout: () => {
+				const endSession = [];
+				localStorage.removeItem("token")
+				setStore({ endSession });
 			},
 
 			exampleFunction: () => {

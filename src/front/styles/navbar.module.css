@@ -1,0 +1,13 @@
+.registerButton {
+    border-radius: 25px;
+    background-color: white;
+    color: black;
+    font-family: Montserrat;
+  }
+
+  .loginButton {
+    border-radius: 25px;
+    background-color: #fb6514;
+    color: #fff;
+    font-family: Montserrat;
+  }
