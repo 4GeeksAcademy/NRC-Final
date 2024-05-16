@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+/*import React, { useState, useEffect } from 'react';
 import './App.css';
 
 const ProductDisplay = () => (
@@ -12,7 +12,7 @@ const ProductDisplay = () => (
     </div>
     <form action="/create-checkout-session" method="POST">
       {/* Add a hidden field with the lookup_key of your Price */}
-      <input type="hidden" name="lookup_key" value="{{PRICE_LOOKUP_KEY}}" />
+    /*  <input type="hidden" name="lookup_key" value="{{PRICE_LOOKUP_KEY}}" />
       <button id="checkout-and-portal-button" type="submit">
         Checkout
       </button>
@@ -21,7 +21,7 @@ const ProductDisplay = () => (
 );
 
 const SuccessDisplay = ({ sessionId }) => {
-  return (
+  return (g
     <section>
       <div className="product Box-root">
         <Logo />
@@ -105,3 +105,4 @@ const Logo = () => (
     </g>
   </svg>
 );
+*/
