@@ -7,14 +7,15 @@ const Calendly = () => {
     <div className="App">
       <InlineWidget url="https://calendly.com/nrcaplications/revision"
       styles={{
-        height: '1000px'
+        height: '760px',
+        
       }}
       pageSettings={{
-        backgroundColor: '252C44',
+        backgroundColor: '994508',
         hideEventTypeDetails: false,
         hideLandingPageDetails: false,
-        primaryColor: '00a2ff',
-        textColor: 'fbfbfb'
+        primaryColor: '0A0E1A',
+        textColor: 'FFFFFF'
       }}
       />
     </div>

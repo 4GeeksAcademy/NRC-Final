@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			messages: [],
+			users: [],
 			token: JSON.parse(localStorage.getItem("token")) || [],
 			demo: [
 				{
@@ -49,6 +50,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("Error loading message from backend", error)
 				}
 			},
+
+			loadUserData: () => {
+				fetch(process.env.BACKEND_URL + "userProfile")
+				.then(response => response.json())
+				.then(response => setStore({users: response}))
+				
+			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();

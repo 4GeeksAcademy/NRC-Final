@@ -60,6 +60,9 @@ export const Navbar = () => {
 							<Link to="/login">
 								<button className={`btn me-2 px-4 ${styles.loginButton}`}>Login</button>
 							</Link>
+							<Link to="/admin">
+								<button className={`btn me-3 ${styles.registerButton}`}>Admin</button>
+							</Link>
 						</>
 					)}
 				</div>

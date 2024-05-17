@@ -9,11 +9,13 @@ import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Login } from "./pages/login";
 import { User } from "./pages/user";
+import { Admin } from "./pages/admin";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import Contact_form from "./pages/contact_form";
+import Messages from "./pages/messages";
 
 //create your first component
 const Layout = () => {
@@ -34,9 +36,11 @@ const Layout = () => {
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<Login />} path="/login" />
                         <Route element={<User />} path="/user" />
+                        <Route element={<Admin />} path="/admin" />
                         <Route element={<Registro />} path="/registro" />
                         <Route element={<Contact_form />} path="/contact" />
                         <Route element={<Login />} path="/login" />
+                        <Route element={<Messages />} path="/inbox" />
 
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
