@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate, BrowserRouter, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const Login = () => {
@@ -71,6 +71,9 @@ export const Login = () => {
                 </div>
                 <button type="submit" className="btn btn-primary" onClick={login}>Submit</button>
             </form>
+			<Link to='/admin'>
+				<button className="btn btn-primary">Admin</button>
+			</Link>
 		</div>
 	);
 };

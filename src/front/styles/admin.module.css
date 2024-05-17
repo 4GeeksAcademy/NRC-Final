@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+
+
+.card,
+.card1{
+    width: 600px;
+    height: 300px;
+    border-radius: 40px;
+    margin-top: 100px;
+    overflow-y: scroll;
+}
+
+
+.card{
+    background: linear-gradient(to top,rgba(214, 102, 41, 0.61),  #1c1c1c58 ,  #0a0e1a2b );
+}
+
+
+.card1{
+    background: linear-gradient(to right,rgba(214, 102, 41, 0.574), #1c1c1cfb,  #0a0e1a7e);
+}
+
+
+
+.datos{
+    color: white;
+    font-family: Montserrat;
+    margin-right: 350px;
+    font-size: small;
+    margin-top: 15px;
+    
+}
+
+
+.titulo1,
+.titulo{
+    font-family: Montserrat;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.titulo1{
+   padding-top: 20px;
+}
+
+
+
+    
+   
+
+
+

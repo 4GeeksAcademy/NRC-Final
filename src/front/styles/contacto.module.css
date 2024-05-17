@@ -32,9 +32,8 @@
   border: 1px solid #ff730e;
   box-sizing: border-box;
   width: 920px;
-  height: 350px;
-  padding-top: 10px;
-  margin-top: 90px;  
+  padding: 3px;
+  margin-top: 90px; 
 }
 
 .button {
@@ -43,7 +42,6 @@
   width: 200px;
   height: 49px;
   color: #fff;
-  margin-top: 40px;
   font-family: Montserrat;
 }
 
@@ -53,7 +51,6 @@
   justify-content: center;
   align-items: center;    
   letter-spacing: 0.05em;
-  text-transform: capitalize;
   font-weight: 700;
   text-align: center;
   color: white;
@@ -65,7 +62,6 @@
   flex-direction: column;
   align-items: center;
   width: 1000px;
-  height: 800px;
   border-radius: 40px;
   background: linear-gradient(rgba(214, 101, 41, 0.678), #1c1c1c, rgba(255, 255, 255, 0.05));
 }
@@ -76,13 +72,16 @@
   width: 900px;
   margin-left: 0px;
   border: none;
+  outline: none;
 }
 
 .formInputComment{
   width: 900px;
-  height: 330px;
   margin-left: 0px;
   border: none;
+  resize: none;
+  border-radius: 25px;
+  outline: none;
 }
 
 @media screen and (max-width: 830px) {

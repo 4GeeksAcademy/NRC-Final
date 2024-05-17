@@ -5,9 +5,9 @@ import styles from "../../styles/contacto.module.css";
 export const Contact_form = () => {
   const { store, actions } = useContext(Context);
 
-  const [email, setEmail] = useState('')
-  const [from_user, setFrom_user] = useState('')
-  const [comment, setComment] = useState('')
+  const [email, setEmail] = useState(null)
+  const [from_user, setFrom_user] = useState(null)
+  const [comment, setComment] = useState(null)
 
 
 
@@ -25,7 +25,7 @@ export const Contact_form = () => {
 
 
   const sendFormData = (from_user, email, comment) => {
-    fetch(`${process.env.BACKEND_URL}/contact_form`, {
+    fetch(`${process.env.BACKEND_URL}contact_form`, {
       method: "POST",
       body: JSON.stringify({
         "from_user": from_user,
@@ -64,9 +64,11 @@ export const Contact_form = () => {
           </div>
           <div className={styles.commentContact}>
             <label htmlFor="commentId" className="form-label"></label>
-            <textarea type="text" name="comment" value={comment} maxLength={550} onChange={handleChangeComment} className={`${styles.formInputComment}`} rows="4" id="commentId" placeholder="Tu mensaje" required />
+            <textarea type="text" name="comment" value={comment} maxLength={550} onChange={handleChangeComment} className={`${styles.formInputComment}`} rows="10" id="commentId" placeholder="Tu mensaje" required />
           </div>
-          <button type="submit" className={styles.button}>Enviar  <i className="fas fa-long-arrow-alt-right"></i></button>
+          <div className="mt-4 mb-4">
+            <button type="submit" className={styles.button}>Enviar  <i className="fas fa-long-arrow-alt-right"></i></button>
+          </div>
         </form>
       </div>
     </div>
