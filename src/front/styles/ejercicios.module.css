@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+
+
+.input {
+
+    padding-top: 6%;
+    width: 60%;
+    height: 60%;
+    margin-left: 20%;
+}
+
+.contenedor {
+    background: linear-gradient(to right, rgba(247, 109, 34, 0.801), #1c1c1c00, #1e2e644b);
+    width: 60%;
+    height: 300px;
+    margin: 10%;
+    text-align: center;
+    color: darkorange;
+    font-family: Montserrat;
+    border-radius: 30px;
+
+
+}
+
+.cardentreno,
+.cardnutri {
+    margin-top: 50%;
+}
+
+.cardnutri {
+    color: white;
+    margin-bottom: 10%;
+    margin-left: 80%;
+    background: linear-gradient(to left, rgba(247, 109, 34, 0.801), #1c1c1c00, #1e2e644b);
+}
+
+.cardentreno {
+    color: white;
+    margin-left: 1%;
+    background: linear-gradient(to right, rgba(247, 109, 34, 0.801), #1c1c1c00, #1e2e644b);
+}
+
+.recetas,
+.ejercicios {
+    background: linear-gradient(to bottom, rgba(247, 109, 34, 0.801), #1c1c1c00, #1e2e644b);
+    color: rgb(255, 255, 255);
+    border-radius: 10%;
+    font-family: Montserrat;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+
+.boton {
+    margin-top: 5px;
+    border-radius: 25px;
+    background-color: #f76d22cc;
+    color: #fff;
+    font-family: Montserrat;
+}
+
+.recetas {
+    border-radius: 3%;
+}
+
+.modal{
+    background:  rgb(140, 55, 10);
+    color: white;
+    font-family: Montserrat;
+}
+
+.input3{
+    width: 30%;
+    margin-left: 35%;
+    margin-top: 5%;
+}
+
+

@@ -16,6 +16,8 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import Contact_form from "./pages/contact_form";
 import Messages from "./pages/messages";
+import { Ejercicios } from "./pages/ejercicios";
+
 
 //create your first component
 const Layout = () => {
@@ -41,6 +43,7 @@ const Layout = () => {
                         <Route element={<Contact_form />} path="/contact" />
                         <Route element={<Login />} path="/login" />
                         <Route element={<Messages />} path="/inbox" />
+                        <Route element={<Ejercicios />} path="/ejercicio" />
 
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
