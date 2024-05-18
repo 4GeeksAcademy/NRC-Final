@@ -217,6 +217,7 @@ def protected():
     return jsonify(logged_in_as=current_user), 200
 
 
+
 #endpoints videos
 
 @app.route('/video', methods=['POST'])
