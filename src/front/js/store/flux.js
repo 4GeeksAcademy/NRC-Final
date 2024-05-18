@@ -3,7 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			messages: [],
 			users: [],
-			token: JSON.parse(localStorage.getItem("token")) || [],
+			token: JSON.parse(localStorage.getItem("token")) || {},
 			demo: [
 				{
 					title: "FIRST",
@@ -18,6 +18,42 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			login: async (user) => {
+				try {
+					const response = await fetch(`${process.env.BACKEND_URL}/login`, {
+						method: "POST",
+						body: JSON.stringify(user),
+						headers: { "Content-Type": "application/json" }
+					});
+
+					if (!response.ok) {
+						throw new Error('Nombre de usuario o contraseña incorrectos');
+					}
+
+					const userToken = await response.json();
+					localStorage.setItem("token", JSON.stringify(userToken));
+					setStore({ token: userToken })
+				} catch (error) {
+					console.error(error);
+				}
+			},
+
+			authentication: async () => {
+				const token = JSON.parse(localStorage.getItem("token"))
+				const access_key = token.access_token
+				try {
+					const response = await fetch(`${process.env.BACKEND_URL}/login`, {
+						method: "GET",
+						headers: { "Authorization": `Bearer ${access_key}` }
+					});
+					const data = await response.json();
+					const authorizerUser = data.logged_in_as;
+					navigate(`/private`)
+				} catch (error) {
+					console.error(error);
+				}
+			},
+
 			loadMessagesContactForm: async () => {
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}/contact_form`);
@@ -29,9 +65,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			logout: () => {
-				const endSession = [];
 				localStorage.removeItem("token")
-				setStore({ endSession });
+				setStore(prevState => ({ ...prevState, token: {} }));
 			},
 
 			exampleFunction: () => {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Route, Routes, useNavigate, BrowserRouter, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { jwtDecode } from 'jwt-decode';
 
 export const Login = () => {
 	const { store, actions } = useContext(Context);
@@ -11,45 +12,27 @@ export const Login = () => {
 		"password": ""
 	})
 
-    const login = async () => {
-		try {
-			const response = await fetch(`${process.env.BACKEND_URL}/login`, {
-				method: "POST",
-				body: JSON.stringify(user),
-				headers: { "Content-Type": "application/json" }
-			});
-			const userToken = await response.json();
-			localStorage.setItem("access", JSON.stringify(userToken));
-			/*authentication()*/
-		} catch (error) {
-			console.error(error);
-		}
+    const handleLogin = async () => {
+		await actions.login(user);
+        const access_token = JSON.parse(localStorage.getItem("token"))
+        const access_key = access_token.access_token
+        const decodedToken = jwtDecode(access_key);
+        const userRol = decodedToken.rol;
+        if (userRol===`admin`) {
+            navigate(`/demo`); //Cambiar por la direccion de la vista admin
+        } else {
+            navigate(`/user`);
+        } 
 	}
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 		try {
-			await login()
+			await handleLogin()
 		} catch (error) {
 			console.log('error', error)
 		}
 		}
-
-	/*const authentication = async () => {
-		const token = JSON.parse(localStorage.getItem("access"))
-		const access_key = token.access_token
-        try {
-            const response = await fetch(`${process.env.BACKEND_URL}/login`, {
-				method: "GET",
-				headers: { "Authorization": `Bearer ${access_key}` }
-			});
-			const data = await response.json();
-			const authorizerUser = data.logged_in_as;
-			navigate(`/private`)
-        } catch (error) {
-			console.error(error);
-		}
-    }*/
 
 	return (
 		<div className="container">
@@ -69,7 +52,7 @@ export const Login = () => {
                     id="inputPassword1" 
                     onChange={(e) => { setUser({ ...user, password: e.target.value }) }} />
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={login}>Submit</button>
+                <button type="submit" className="btn btn-primary" onClick={handleLogin}>Submit</button>
             </form>
 			<Link to='/admin'>
 				<button className="btn btn-primary">Admin</button>

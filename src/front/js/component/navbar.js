@@ -12,13 +12,19 @@ export const Navbar = () => {
 
 	const logout = () => {
 		actions.logout();
+		setIsLogged(false);
+		navigate(`/login`);
 	}
 
+	const isAuthenticated = (token) => {
+		return token && token.access_token && token.access_token.trim() !== '';
+	};
+
 	useEffect(() => {
-		if (store.token && store.token.length > 0) {
-			setIsLogged(true); 
+		if (!isAuthenticated(store.token)) {
+			setIsLogged(false); 
 		  } else {
-			setIsLogged(false);
+			setIsLogged(true);
 		  }
 	  }, [store.token]);
 
@@ -51,7 +57,7 @@ export const Navbar = () => {
 				</div>
 				<div>
 					{isLogged ? (
-							<button className={`btn me-2 px-4 ${styles.loginButton}`} onClick={() => logout}>Logout</button>
+							<button className={`btn me-2 px-4 ${styles.loginButton}`} onClick={logout}>Logout</button>
 					) : (
 						<>
 							<Link to="/registro">
