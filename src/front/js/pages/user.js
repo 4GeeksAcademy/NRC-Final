@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import styles from "../../styles/user.module.css";
 import Calendly from "../component/calendar";
+import { Link } from "react-router-dom";
 
 export const User = () => {
     const { store, actions } = useContext(Context);
@@ -68,7 +69,20 @@ export const User = () => {
                                     </div>
                                     <div className={styles.card1}>
                                         <div className={styles.titulo1}>
-                                            <h2>VISTA DE CONTENIDO</h2>
+                                            <h2> NUTRICIÓN Y ENTRENO </h2>
+                                            <img src="https://cdn.euroinnova.edu.es/img/subidasEditor/funciones%20(55)-1617716195.webp" alt="Descripción de la imagen" className={styles.imagen} />
+                                            <div className={styles.targeta}>
+                                                <div className="card" style={{ backgroundColor: "#131a30" }}>
+                                                    <div className="card-header">
+                                                        NRC
+                                                    </div>
+                                                    <div className="card-body">
+                                                        <h5 className="card-title">Empieza tu cambio</h5>
+                                                        <p className="card-text"></p>
+                                                        <Link to="/ejercicio" className={`btn btn ${styles.boton}`}>Dieta/Entreno</Link>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

@@ -4,7 +4,7 @@
 
 
 .card,
-.card1{
+.card1 {
     width: 600px;
     height: 300px;
     border-radius: 40px;
@@ -12,57 +12,57 @@
 }
 
 
-.card{
-    background: linear-gradient(to top,rgba(214, 102, 41, 0.61),  #1c1c1c58 ,  #0a0e1a2b );
+.card {
+    background: linear-gradient(to top, rgba(214, 102, 41, 0.61), #1c1c1c58, #0a0e1a2b);
 }
 
 
-.card1{
-    background: linear-gradient(to right,rgba(214, 102, 41, 0.574), #1c1c1cfb,  #0a0e1a7e);
+.card1 {
+    background: linear-gradient(to right, rgba(214, 102, 41, 0.574), #1c1c1cfb, #0a0e1a7e);
 }
 
 
 
-.datos{
+.datos {
     color: white;
     font-family: Montserrat;
     margin-right: 350px;
     font-size: small;
     margin-top: 15px;
-    
+
 }
 
 
 .titulo1,
 .datos1,
-.titulo{
+.titulo {
     font-family: Montserrat;
     color: white;
     margin-bottom: 20px;
 }
 
-.input{
+.input {
     border-style: inherit;
     border-radius: 10px;
-    padding-top:2px;
+    padding-top: 2px;
     margin-top: 6px;
     margin-left: 40px;
     width: 500px;
-    background: linear-gradient(to right, rgba(247, 109, 34, 0.801), #1c1c1c00,  #0a0e1a4b);
+    background: linear-gradient(to right, rgba(247, 109, 34, 0.801), #1c1c1c00, #1e2e644b);
     border-style: double;
 }
 
-.guardar{
+.guardar {
     margin-top: 5px;
     border-radius: 25px;
-    background-color: rgba(247, 109, 34, 0.801);
+    background-color: #f76d22cc;
     color: #fff;
     font-family: Montserrat;
     margin-left: 250px;
- }
+}
 
-.titulo1{
-   padding-top: 20px;
+.titulo1 {
+    padding-top: 20px;
 }
 
 .input::placeholder {
@@ -70,8 +70,28 @@
 }
 
 
-    
-   
+.targeta {
+    color: white;
+    max-width: 15rem;
+    margin-left: 10%;
+    margin-top: -170px;
+    display: flex;
+    align-items: center;
+}
 
 
+.boton {
+    margin-top: 5px;
+    border-radius: 25px;
+    background-color: #f76d22cc;
+    color: #fff;
+    font-family: Montserrat;
 
+}
+
+.imagen {
+    max-width: 40%;
+    margin-left: 50%;
+    margin-top: 2%;
+    border-radius: 10%;
+}
