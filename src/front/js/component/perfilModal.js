@@ -85,7 +85,6 @@ export const PerfilModal = () => {
 
     return (
         <>
-            <button className="btn me-2 px-4" data-bs-toggle="modal" data-bs-target="#perfilModal">Perfil</button>
             <div className="modal fade" show={showModal} onHide={() => setShowModal(false)} id="perfilModal" tabIndex="-1" aria-labelledby="perfilModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
