@@ -12,16 +12,14 @@
 }
 
 .contenedor {
-    background: linear-gradient(to right, rgba(247, 109, 34, 0.801), #1c1c1c00, #1e2e644b);
+    background: linear-gradient(to right, rgba(247, 109, 34, 0.801), #1c1c1c, #0a102463);
     width: 60%;
     height: 300px;
-    margin: 10%;
+    margin: 5%;
     text-align: center;
     color: darkorange;
     font-family: Montserrat;
     border-radius: 30px;
-
-
 }
 
 .cardentreno,
@@ -42,15 +40,20 @@
     background: linear-gradient(to right, rgba(247, 109, 34, 0.801), #1c1c1c00, #1e2e644b);
 }
 
+
 .recetas,
 .ejercicios {
-    background: linear-gradient(to bottom, rgba(247, 109, 34, 0.801), #1c1c1c00, #1e2e644b);
+    background: linear-gradient(to bottom, rgba(247, 109, 34, 0.801), #1c1c1cbe, #1e2e646c);
     color: rgb(255, 255, 255);
     border-radius: 10%;
     font-family: Montserrat;
     margin-left: 10%;
     margin-top: 10%;
+
+    
 }
+
+
 
 .boton {
     margin-top: 5px;
@@ -68,6 +71,7 @@
     background:  rgb(140, 55, 10);
     color: white;
     font-family: Montserrat;
+   
 }
 
 .input3{
@@ -76,4 +80,23 @@
     margin-top: 5%;
 }
 
+.imgfondo {
+    position: fixed;
+    top: 6;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    overflow: auto;
+}
+
+.logo {
+    position: absolute;
+    top: 1%; 
+    left: 88%; 
+    width: 12%; 
+    z-index: 1; 
+   
+}
 
