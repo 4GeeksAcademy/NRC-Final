@@ -25,7 +25,7 @@ export const Contact_form = () => {
 
 
   const sendFormData = (from_user, email, comment) => {
-    fetch(`${process.env.BACKEND_URL}contact_form`, {
+    fetch(`${process.env.BACKEND_URL}/contact_form`, {
       method: "POST",
       body: JSON.stringify({
         "from_user": from_user,

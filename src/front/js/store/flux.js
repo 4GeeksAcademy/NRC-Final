@@ -87,7 +87,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			loadUserData: () => {
-				fetch(process.env.BACKEND_URL + "userProfile")
+				fetch(process.env.BACKEND_URL + "/userProfile")
 				.then(response => response.json())
 				.then(response => setStore({users: response}))
 				
