@@ -1,9 +1,12 @@
+import Swal from 'sweetalert2';
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			messages: [],
 			users: [],
 			token: JSON.parse(localStorage.getItem("token")) || {},
+			user_id:[],
 			demo: [
 				{
 					title: "FIRST",
@@ -27,6 +30,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 
 					if (!response.ok) {
+						Swal.fire({
+							title: "Error",
+							text: "Nombre de usuario o contraseña incorrectos",
+							icon: "error"
+						  });
 						throw new Error('Nombre de usuario o contraseña incorrectos');
 					}
 
@@ -48,7 +56,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 					const data = await response.json();
 					const authorizerUser = data.logged_in_as;
-					navigate(`/private`)
 				} catch (error) {
 					console.error(error);
 				}
@@ -67,6 +74,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			logout: () => {
 				localStorage.removeItem("token")
 				setStore(prevState => ({ ...prevState, token: {} }));
+				setStore(prevState => ({ ...prevState, user_id: [] }));
 			},
 
 			exampleFunction: () => {

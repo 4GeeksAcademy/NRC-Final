@@ -1,6 +1,7 @@
 import React, { useState , useContext} from "react";
 import styles from "../../styles/registro.module.css";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 
 export const Registro = () => {
@@ -37,6 +38,16 @@ export const Registro = () => {
           })
             .then(response => response.json())
             .then(response => console.log(response))
+            .then(response => Swal.fire({
+              title: "Bienvenido",
+              text: "Usuario registrado correctamente",
+              icon: "success"
+            }))
+            .catch(error => Swal.fire({
+              title: "Error",
+              text: "No ha sido posible registrar el usuario",
+              icon: "error"
+            })) 
         }
     
 
@@ -46,8 +57,15 @@ export const Registro = () => {
         e.preventDefault();
         if (password === confirmPassword) {
             sendFormData(email,password)
+            setEmail("");
+            setPassword("");
+            setConfirmPassword("");
         }else{
-            alert('La contraseña no coincide')
+          Swal.fire({
+            title: "Error",
+            text: "La contraseña no coincide",
+            icon: "error"
+          }) 
         }
         
 

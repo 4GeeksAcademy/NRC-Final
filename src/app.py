@@ -114,13 +114,13 @@ def add_user_profile(user_id):
         raise APIException('all fields are required', status_code=400)
 
     new_user_profile = User_profile(
-            name=data['name'], 
-            last_name=data['last_name'], 
-            age=data['age'],
-            genre=data['genre'],
-            height=data['height'],
-            injury=data.get('injury'),
-            additional_info=data['additional_info'],
+            name=data['nombre'], 
+            last_name=data['apellidos'], 
+            age=data['edad'],
+            genre=data['genero'],
+            height=data['altura'],
+            injury=data.get('lesion'),
+            additional_info=data['informacionAdicional'],
             user_id=user_id
     )
 
@@ -137,20 +137,20 @@ def update_user(user_id):
         if user is None:
             raise APIException('User not found', status_code=404)
 
-        if 'name' in data:
-            user.name = data['name']
-        if 'last_name' in data:
-            user.last_name = data['last_name']
-        if 'age' in data:
-            user.age = data['age']
-        if 'genre' in data:
-            user.genre = data['genre']
-        if 'height' in data:
-            user.height = data['height']
-        if 'injury' in data:
-            user.injury = data['injury']
-        if 'additional_info' in data:
-            user.additional_info = data['additional_info'] 
+        if 'nombre' in data:
+            user.name = data['nombre']
+        if 'apellidos' in data:
+            user.last_name = data['apellidos']
+        if 'edad' in data:
+            user.age = data['edad']
+        if 'genero' in data:
+            user.genre = data['genero']
+        if 'altura' in data:
+            user.height = data['altura']
+        if 'lesion' in data:
+            user.injury = data['lesion']
+        if 'informacionAdicional' in data:
+            user.additional_info = data['informacionAdicional'] 
         db.session.commit()
         return jsonify({'message': 'User updated'})
     except Exception as e:
@@ -163,13 +163,13 @@ def get_user_profile(user_id):
     if user is None:
         raise APIException('user not found', status_code=404) 
 
-    user_profile_json = {'name': user.name,
-                        'last_name': user.last_name,
-                        'age': user.age,
-                        'genre': user.genre,
-                        'height': user.height,
-                        'injury': user.injury,
-                        'additional_info': user.additional_info,
+    user_profile_json = {'nombre': user.name,
+                        'apellidos': user.last_name,
+                        'edad': user.age,
+                        'genero': user.genre,
+                        'altura': user.height,
+                        'lesion': user.injury,
+                        'informacionAdicional': user.additional_info,
                         'user_id': user.user_id,
                         'user' : {
                             'email' : user.user.email,
@@ -205,9 +205,12 @@ def login():
         return jsonify({"msg": "Bad email or password"}), 401
     
     expire_time = timedelta(seconds = 60) #solo para pruebas de acceso, después hay que modificarlo
-    rol = {"rol": user_rol}
+    additional_claims = {
+        "rol": user_rol,
+        "user_id": user.id
+        }
     
-    access_token = create_access_token(identity=email, expires_delta = expire_time, additional_claims=rol)
+    access_token = create_access_token(identity=email, expires_delta = expire_time, additional_claims=additional_claims)
     return jsonify(access_token=access_token)
 
 @app.route("/private", methods=["GET"])
