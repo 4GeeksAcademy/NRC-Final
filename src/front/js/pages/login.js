@@ -19,7 +19,7 @@ export const Login = () => {
         const decodedToken = jwtDecode(access_key);
         const userRol = decodedToken.rol;
         if (userRol===`admin`) {
-            navigate(`/demo`); //Cambiar por la direccion de la vista admin
+            navigate(`/admin`);
         } else {
             navigate(`/user`);
         } 
@@ -54,9 +54,6 @@ export const Login = () => {
                 </div>
                 <button type="submit" className="btn btn-primary" onClick={handleLogin}>Submit</button>
             </form>
-			<Link to='/admin'>
-				<button className="btn btn-primary">Admin</button>
-			</Link>
 		</div>
 	);
 };
