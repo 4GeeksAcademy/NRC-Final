@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import styles from "../../styles/user.module.css";
 import Calendly from "../component/calendar";
@@ -17,6 +17,15 @@ export const User = () => {
         informacionAdicional: ""
     });
 
+    const [videos, setVideos] = useState([]);
+
+    useEffect(() => {
+        fetch('https://glorious-guacamole-4jw4vwp5jvr3776w-3001.app.github.dev/video/')
+            .then(response => response.json())
+            .then(data => setVideos(data))
+            .catch(error => console.error('Error fetching videos:', error));
+    }, []);
+
     const handleInputChange = (e) => {
         e.preventDefault();
         const { name, value } = e.target;
@@ -24,7 +33,6 @@ export const User = () => {
             ...userData,
             [name]: value
         });
-        console.log(userData);
     };
 
     const handleSubmit = (e) => {
@@ -48,52 +56,58 @@ export const User = () => {
             });
     };
 
+    const VideoComponent = ({ video }) => (
+        <div key={video.id} className={styles.videos}>
+            <h5>{video.exercise_name}</h5>
+            <a href={video.url} target="_blank" rel="noopener noreferrer">
+                Ver en YouTube
+            </a>
+        </div>
+    );
+
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-md-8">
-                    <div className="text-center mt-5">
-                        <form onSubmit={handleSubmit}>
-                            <div className={styles.card}>
-                                <div className={styles.titulo}>
-                                    <h2>DATOS PERSONALES</h2>
-                                    <div className={styles.datos}>
-                                        <input type="text" className={styles.input} placeholder="Nombre:" name="nombre" value={userData.nombre} onChange={handleInputChange} />
-                                        <input type="text" className={styles.input} placeholder="Apellidos:" name="apellidos" value={userData.apellidos} onChange={handleInputChange} />
-                                        <input type="number" className={styles.input} placeholder="Edad:" name="edad" value={userData.edad} onChange={handleInputChange} />
-                                        <input type="number" className={styles.input} placeholder="Altura:" name="altura" value={userData.altura} onChange={handleInputChange} />
-                                        <input type="text" className={styles.input} placeholder="Sexo:" name="sexo" value={userData.sexo} onChange={handleInputChange} />
-                                        <input type="boolean" className={styles.input} placeholder="Lesión:" name="lesion" value={userData.lesion} onChange={handleInputChange} />
-                                        <input type="text" className={styles.input} placeholder="Información Adicional:" name="informacionAdicional" value={userData.informacionAdicional} onChange={handleInputChange} />
-                                        <button type="submit" className={styles.guardar}>Guardar</button>
-                                    </div>
-                                    <div className={styles.card1}>
-                                        <div className={styles.titulo1}>
-                                            <h2> NUTRICIÓN Y ENTRENO </h2>
-                                            <img src="https://cdn.euroinnova.edu.es/img/subidasEditor/funciones%20(55)-1617716195.webp" alt="Descripción de la imagen" className={styles.imagen} />
-                                            <div className={styles.targeta}>
-                                                <div className="card" style={{ backgroundColor: "#131a30" }}>
-                                                    <div className="card-header">
-                                                        NRC
-                                                    </div>
-                                                    <div className="card-body">
-                                                        <h5 className="card-title">Empieza tu cambio</h5>
-                                                        <p className="card-text"></p>
-                                                        <Link to="/ejercicio" className={`btn btn ${styles.boton}`}>Dieta/Entreno</Link>
+        <div className={styles.imgfondo} style={{ backgroundImage: "url('https://s1.abcstatics.com/abc/www/multimedia/bienestar/2023/04/19/AdobeStock_90212267-RMyGoGaFY2Tan8BncOj0brL-1200x840@abc.jpg')" }}>
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-8">
+                        <div className="text-center mt-5">
+                            <form onSubmit={handleSubmit}>
+                                <div className={styles.card}>
+                                    <div className={styles.titulo}>
+                                        <h2>VIDEOS RECOMENDADOS</h2>
+                                        <div>
+                                            {videos.map(video => (
+                                                <VideoComponent video={video} key={video.id} />
+                                            ))}
+                                        </div>
+                                        <div className={styles.card1}>
+                                            <div className={styles.titulo1}>
+                                                <h2>NUTRICIÓN Y ENTRENO</h2>
+                                                <img src="https://cdn.euroinnova.edu.es/img/subidasEditor/funciones%20(55)-1617716195.webp" alt="Descripción de la imagen" className={styles.imagen} />
+                                                <div className={styles.targeta}>
+                                                    <div className="card" style={{ backgroundColor: "#1c1c1c" }}>
+                                                        <div className="card-header">
+                                                            NRC
+                                                        </div>
+                                                        <div className="card-body">
+                                                            <h5 className="card-title">Empieza tu cambio</h5>
+                                                            <p className="card-text"></p>
+                                                            <Link to="/ejercicio" className={`btn btn ${styles.boton}`}>Dieta/Entreno</Link>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <div className="col-md-4">
-                    <div className="text-center mt-5">
-                        <div className={styles.calendario}>
-                            <Calendly />
+                    <div className="col-md-4">
+                        <div className="text-center mt-5">
+                            <div className={styles.calendario}>
+                                <Calendly />
+                            </div>
                         </div>
                     </div>
                 </div>
