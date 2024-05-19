@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Context } from '../store/appContext';
 import styles from "../../styles/contacto.module.css";
+import Swal from 'sweetalert2';
 
 export const Contact_form = () => {
   const { store, actions } = useContext(Context);
@@ -36,6 +37,16 @@ export const Contact_form = () => {
     })
       .then(response => response.json())
       .then(response => console.log(response))
+      .then(response => Swal.fire({
+        title: "Mensaje enviado",
+        text: "Mensaje enviado correctamente",
+        icon: "success"
+      }))
+      .catch(error => Swal.fire({
+        title: "Error",
+        text: "No ha sido posible enviar el mensaje",
+        icon: "error"
+      })) 
   }
 
 
