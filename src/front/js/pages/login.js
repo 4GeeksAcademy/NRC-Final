@@ -17,6 +17,8 @@ export const Login = () => {
         const access_token = JSON.parse(localStorage.getItem("token"))
         const access_key = access_token.access_token
         const decodedToken = jwtDecode(access_key);
+        const userId = decodedToken.user_id;
+        store.user_id = userId
         const userRol = decodedToken.rol;
         if (userRol===`admin`) {
             navigate(`/admin`);
