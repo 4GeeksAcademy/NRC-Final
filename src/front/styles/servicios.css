@@ -1,0 +1,217 @@
+.servicios {
+    /*background: linear-gradient(180deg, rgb(10, 14, 28) 0%, rgb(37, 44, 68) 59.16%, rgb(10, 13, 23) 100%);*/
+    height: 969px;
+    position: relative;
+    width: 1812px;
+  }
+  
+  .servicios .overlap {
+    height: 515px;
+    left: 116px;
+    position: absolute;
+    top: 364px;
+    width: 1558px;
+  }
+  
+  .servicios .group {
+    height: 514px;
+    left: 503px;
+    position: absolute;
+    top: 1px;
+    width: 556px;
+  }
+  
+  .servicios .overlap-group {
+    background-image: url(../img/rectangle-12.svg);
+    background-size: 100% 100%;
+    height: 514px;
+    left: 7px;
+    position: relative;
+    width: 538px;
+  }
+  
+  .servicios .text-wrapper {
+    color: #090e19;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 25px;
+    font-weight: 700;
+    left: 123px;
+    letter-spacing: 1.25px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 179px;
+    width: 281px;
+  }
+  
+  .servicios .el-acondicionamiento {
+    color: #0a0d17;
+    font-family: "Montserrat-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 102px;
+    letter-spacing: 0;
+    line-height: 35px;
+    position: absolute;
+    text-align: center;
+    top: 280px;
+    width: 333px;
+  }
+  
+  .servicios .line {
+    height: 2px;
+    left: 134px;
+    position: absolute;
+    top: 245px;
+    width: 271px;
+  }
+  
+  .servicios .overlap-wrapper {
+    height: 510px;
+    left: 1037px;
+    position: absolute;
+    top: 3px;
+    width: 521px;
+  }
+  
+  .servicios .div {
+    background-image: url(../img/rectangle-14.svg);
+    background-size: 100% 100%;
+    height: 500px;
+    left: 8px;
+    position: relative;
+    top: 10px;
+    width: 500px;
+  }
+  
+  .servicios .power {
+    height: 115px;
+    left: 197px;
+    object-fit: cover;
+    position: absolute;
+    top: 64px;
+    width: 107px;
+  }
+  
+  .servicios .rehabilitaci-n {
+    color: #090d1b;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 25px;
+    font-weight: 700;
+    left: 129px;
+    letter-spacing: 1.25px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 199px;
+    width: 243px;
+  }
+  
+  .servicios .la-rehabilitaci-n {
+    color: #0a0d17;
+    font-family: "Montserrat-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 41px;
+    letter-spacing: 0;
+    line-height: 35px;
+    position: absolute;
+    text-align: center;
+    top: 299px;
+    width: 366px;
+  }
+  
+  .servicios .img {
+    height: 2px;
+    left: 93px;
+    position: absolute;
+    top: 266px;
+    width: 314px;
+  }
+  
+  .servicios .overlap-group-wrapper {
+    height: 514px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 530px;
+  }
+  
+  .servicios .overlap-2 {
+    background-image: url(https://drive.google.com/file/d/1SrlaBv__C3tQwm0wHMXD02IcVCtGhXb3/view?usp=sharing);
+    background-size: 100% 100%;
+    height: 504px;
+    left: 9px;
+    position: relative;
+    top: 10px;
+    width: 509px;
+  }
+  
+  .servicios .weightlifting {
+    height: 115px;
+    left: 199px;
+    object-fit: cover;
+    position: absolute;
+    top: 65px;
+    width: 109px;
+  }
+  
+  .servicios .text-wrapper-2 {
+    color: #000000;
+    font-family: "Montserrat-SemiBold", Helvetica;
+    font-size: 25px;
+    font-weight: 600;
+    left: 118px;
+    letter-spacing: 1.25px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 192px;
+    width: 269px;
+  }
+  
+  .servicios .entrenamiento-para {
+    color: #000000;
+    font-family: "Montserrat-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 95px;
+    letter-spacing: 0;
+    line-height: 35px;
+    position: absolute;
+    text-align: center;
+    top: 301px;
+    width: 370px;
+  }
+  
+  .servicios .line-2 {
+    height: 2px;
+    left: 94px;
+    position: absolute;
+    top: 268px;
+    width: 320px;
+  }
+  
+  .servicios .dumbbell {
+    height: 129px;
+    left: 732px;
+    object-fit: cover;
+    position: absolute;
+    top: 25px;
+    width: 115px;
+  }
+  
+  .servicios .text-wrapper-3 {
+    color: #f5f5f5;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 65px;
+    font-weight: 700;
+    left: 474px;
+    letter-spacing: 0;
+    line-height: 104px;
+    position: absolute;
+    text-shadow: 0px 4px 4px #00000040;
+    top: 130px;
+    width: 779px;
+  }
+  
