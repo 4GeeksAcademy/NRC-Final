@@ -39,6 +39,7 @@ export const Navbar = () => {
 		}
 	}
 
+
 	useEffect(() => {
 		if (!isAuthenticated(store.token)) {
 			setIsLogged(false);
@@ -67,10 +68,10 @@ export const Navbar = () => {
 										<span className="navbar-brand h4 btn" onClick={() => navigate('/admin')}>Inicio</span>
 									</div>
 									<div className="col-2">
-										<span className="navbar-brand h4 btn" onClick={() => navigate('/contact')}>Contacto (Admin)</span>
+										<span className="navbar-brand h4 btn" onClick={() => navigate('/contact')}>Contacto</span>
 									</div>
 									<div className="col-2">
-										<span className="navbar-brand h4 btn" onClick={() => navigate('/')}>Sobre mi (Admin)</span>
+										<span className="navbar-brand h4 btn" onClick={() => navigate('/')}>Sobre mi</span>
 									</div>
 								</>
 							) : isLogged ? (
@@ -115,7 +116,7 @@ export const Navbar = () => {
 							{userRole === 'user' && (
 								<>
 								<button className={`btn me-2 px-4 ${styles.registerButton}`} data-bs-toggle="modal" data-bs-target="#perfilModal">Perfil</button>
-								<PerfilModal />
+								<PerfilModal userRole={userRole} />
 								</>
 							)}
 							<button className={`btn me-2 px-4 ${styles.loginButton}`} onClick={logout}>Logout</button>

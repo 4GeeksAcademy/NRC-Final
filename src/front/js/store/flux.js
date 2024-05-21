@@ -45,7 +45,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error(error);
 				}
 			},
-
+			
 			authentication: async () => {
 				const token = JSON.parse(localStorage.getItem("token"))
 				const access_key = token.access_token
