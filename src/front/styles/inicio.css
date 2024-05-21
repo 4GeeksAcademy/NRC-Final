@@ -12,9 +12,9 @@
 }
 
 .home .button-instance {
-  left: 428px !important;
-  position: absolute !important;
-  top: 785px !important;
+  left: 428px;
+  position: absolute;
+  top: 785px;
   border-radius: 30px;
   background-color: #fb6514;
   width: 189px;
@@ -83,3 +83,62 @@
   width: 162px;
 }
 
+/* Media query para dispositivos móviles */
+@media (max-width: 767px) {
+  .home {
+    padding-top: 20px;
+    padding-bottom: 70px;
+    height: 607px;
+    background-position: 100% 50%;
+  }
+
+  .home .frame {
+    padding-top: 15px;
+    align-items: center;
+    gap: 16px;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: relative;
+    backdrop-filter: blur(25px) brightness(80%);
+  }
+
+  .home .text-wrapper {
+    font-size: 12vw; 
+    line-height: normal;
+    width: 90%;
+    text-align: center;
+    margin: 0;
+  }
+
+  .home .text-line {
+    font-size: 5vw; 
+    line-height: normal;
+    width: 90%;
+    margin: 0;
+    margin-top: -3%;
+    text-align: center;
+  }
+
+  .home .image {
+    height: auto;
+    width: 50%;
+    max-width: 100px; 
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 20px 0;
+    display: none;
+  }
+
+  .home .button-instance {
+    position: relative;
+    left: 35%;
+    top: 15%;
+    width: auto;
+    padding: 10px 20px;
+    font-size: medium;
+    margin-top: 20px;
+  }
+}
