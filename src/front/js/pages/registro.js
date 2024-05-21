@@ -8,7 +8,7 @@ export const Registro = () => {
    
 
       const [email,setEmail]= useState('')
-      const [password,setPassword]= useState('')
+      const [password,setPassword]= useState(null)
       const [confirmPassword,setConfirmPassword]= useState('')
 
 

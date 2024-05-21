@@ -5,23 +5,30 @@ import Swal from 'sweetalert2';
 
 
 
-export const PerfilModal = () => {
+export const PerfilModal = ({ userRole }) => {
     const { store, actions } = useContext(Context);
-    const [showModal, setShowModal] = useState(true);
+    /* const [showModal, setShowModal] = useState(false); */
 
     const [userData, setUserData] = useState({
         nombre: "",
         apellidos: "",
         edad: "",
         altura: "",
+        lesion: false,
         genero: "",
-        lesion: "",
         informacionAdicional: ""
     });
 
     const userProfile = async () => {
         try {
             const response = await fetch(`${process.env.BACKEND_URL}/userProfile/${store.user_id}`);
+            if (!response.ok) {
+                Swal.fire({
+                    title: "Aviso",
+                    text: "Recuerda completar tus datos para un mejor servicio.",
+                    icon: "warning"
+                  });
+                }
             const data = await response.json();
             setUserData(data)
         } catch (error) {
@@ -29,17 +36,14 @@ export const PerfilModal = () => {
         }
     };
 
+/*     const isProfileComplete = () => {
+        return userData.nombre && userData.apellidos && userData.edad && userData.altura && userData.genero && userData.informacionAdicional && userRole === "user";
+    };
+*/
+    
     useEffect(() => {
         userProfile();
-        if (!isProfileComplete()) {
-            setShowModal(true);
-            console.log(showModal);
-        }
-    }, []);
-
-    const isProfileComplete = () => {
-        return userData.nombre && userData.apellidos && userData.edad && userData.altura && userData.genero && userData.lesion && userData.informacionAdicional;
-    };
+    }, []); 
 
     const handleInputChange = (e) => {
         e.preventDefault();
@@ -53,8 +57,6 @@ export const PerfilModal = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (isProfileComplete()) {
-            setShowModal(false);
             fetch(`${process.env.BACKEND_URL}/userProfile/${store.user_id}`, {
                 method: 'PUT',
                 headers: {
@@ -72,20 +74,19 @@ export const PerfilModal = () => {
                     text: "Error de red",
                     icon: "error"
                 }))
-        } else {
-            Swal.fire({
-                title: "Error",
-                text: "Por favor, completa todos los campos.",
-                icon: "error"
-            })
-        }
     };
 
+/*     useEffect(() => {
+        if (showModal) {
+          const modal = new window.bootstrap.Modal(document.getElementById('perfilModal'));
+          modal.show();
+        }
+      }, [showModal]); */
     
 
     return (
         <>
-            <div className="modal fade" show={showModal} onHide={() => setShowModal(false)} id="perfilModal" tabIndex="-1" aria-labelledby="perfilModalLabel" aria-hidden="true">
+            <div className="modal fade" id="perfilModal" tabIndex="-1" aria-labelledby="perfilModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -118,11 +119,7 @@ export const PerfilModal = () => {
                                     <option>Otros</option>
                                 </select>
                             </div>
-                            <div className="mb-3">
-                                <label htmlFor="lesionInput" className="form-label me-2">Lesión</label>
-                                <input className="form-check-input" type="checkbox" checked={userData.lesion} id="lesionInput" name="lesion" onChange={handleInputChange}></input>
-                                {/* <input type="boolean" className="form-control" id="lesionInput" placeholder="Lesión:" name="lesion" value={userData.lesion} onChange={handleInputChange} /> */}
-                            </div>
+
                             <div className="mb-3">
                                 <label htmlFor="infoAdicionalInput" className="form-label">Información Adicional</label>
                                 <input type="text" className="form-control" id="infoAdicionalInput" placeholder="Información Adicional:" name="informacionAdicional" value={userData.informacionAdicional} onChange={handleInputChange} />

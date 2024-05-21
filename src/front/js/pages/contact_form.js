@@ -60,7 +60,7 @@ export const Contact_form = () => {
   };
 
   return (
-
+<div className={styles.formBack}>
     <div className={styles.formBody}>
       <div className={styles.formulario_contacto}>
         <h2 className="mt-4">No te quedes con dudas</h2>
@@ -82,6 +82,7 @@ export const Contact_form = () => {
           </div>
         </form>
       </div>
+    </div>
     </div>
 
 
