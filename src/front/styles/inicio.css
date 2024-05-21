@@ -1,0 +1,82 @@
+
+.home {
+    background: linear-gradient(180deg, rgb(37, 44, 68) 19.5%, rgb(10, 13, 23) 100%);
+    background-color: rgba(255, 255, 255, 1);
+    background-image: url('https://i.ibb.co/WKW5bbs/entrenador-personal-profesional.jpg');
+    background-position: 50% 50%;
+    background-size: cover;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 20px;
+    height: 969px;
+    position: relative;
+    width: 1812px;
+  }
+  
+  .home .button-instance {
+    background-color: var(--main-color) !important;
+    left: 434px !important;
+    position: absolute !important;
+    top: 785px !important;
+  }
+  
+  .home .design-component-instance-node {
+    font-family: "Montserrat-Regular", Helvetica !important;
+  }
+  
+  .home .button-2 {
+    background-image: url('https://i.ibb.co/hKx4Xmv/union-195.png') !important;
+    position: relative !important;
+  }
+  
+  .home .frame {
+    -webkit-backdrop-filter: blur(4px) brightness(100%);
+    align-items: flex-start;
+    backdrop-filter: blur(4px) brightness(100%);
+    display: inline-flex;
+    flex-direction: column;
+    gap: 32px;
+    height: 375px;
+    left: 118px;
+    position: absolute;
+    top: 212px;
+  }
+  
+  .home .text-wrapper {
+    -webkit-text-stroke: 1px #ef6b0d;
+    color: #ff730d;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 80px;
+    font-weight: 700;
+    height: 207px;
+    letter-spacing: 0;
+    line-height: 104px;
+    margin-left: -1px;
+    margin-top: -2px;
+    position: relative;
+    text-shadow: 0px 4px 4px #00000040;
+    width: 888px;
+  }
+  
+  .home .text-line {
+    color: #ffffff;
+    font-family: "Montserrat-Medium", Helvetica;
+    font-size: 27px;
+    font-weight: 500;
+    height: 135px;
+    letter-spacing: 0;
+    line-height: 45.4px;
+    position: relative;
+    text-align: center;
+    width: 825px;
+  }
+  
+  .home .image {
+    height: 76px;
+    left: 445px;
+    object-fit: cover;
+    position: absolute;
+    top: 632px;
+    width: 162px;
+  }
+  
