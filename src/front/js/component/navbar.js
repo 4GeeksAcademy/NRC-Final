@@ -61,7 +61,7 @@ export const Navbar = () => {
 				</button>
 				<div className="collapse navbar-collapse" id="navbarNavAltMarkup">
 					<div className="container text-center">
-						<div className="row justify-content-center">
+						<div className="navbar-nav mb-2 mb-lg-0 row justify-content-center">
 							{isLogged && userRole === 'admin' ? (
 								<>
 									<div className="col-2">
