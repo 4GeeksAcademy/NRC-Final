@@ -80,7 +80,7 @@ export const Navbar = () => {
 										<span className="navbar-brand h4 btn" onClick={() => navigate('/user')}>Inicio</span>
 									</div>
 									<div className="col-2">
-										<span className="navbar-brand h4 btn" onClick={() => navigate('/')}>Servicios</span>
+										<a className="navbar-brand h4 btn" href="#servicios">Servicios</a>
 									</div>
 									<div className="col-2">
 										<span className="navbar-brand h4 btn" onClick={() => navigate('/contact')}>Contacto</span>
@@ -92,7 +92,7 @@ export const Navbar = () => {
 										<span className="navbar-brand h4 btn" onClick={() => navigate('/')}>Inicio</span>
 									</div>
 									<div className="col-2">
-										<span className="navbar-brand h4 btn" onClick={() => navigate('/')}>Servicios</span>
+										<a className="navbar-brand h4 btn" href="#servicios">Servicios</a>
 									</div>
 									<div className="col-2">
 										<span className="navbar-brand h4 btn" onClick={() => navigate('/contact')}>Contacto</span>
@@ -115,8 +115,8 @@ export const Navbar = () => {
 							)}
 							{userRole === 'user' && (
 								<>
-								<button className={`btn me-2 px-4 ${styles.registerButton}`} data-bs-toggle="modal" data-bs-target="#perfilModal">Perfil</button>
-								<PerfilModal userRole={userRole} />
+									<button className={`btn me-2 px-4 ${styles.registerButton}`} data-bs-toggle="modal" data-bs-target="#perfilModal">Perfil</button>
+									<PerfilModal userRole={userRole} />
 								</>
 							)}
 							<button className={`btn me-2 px-4 ${styles.loginButton}`} onClick={logout}>Logout</button>
