@@ -1,17 +1,31 @@
-import React from 'react'
+import React from "react";
 
-const Inicio = () => {
+import "../../styles/inicio.css";
 
+export const Inicio = () => {
   return (
-    <div className={styles.imgfondo} style={{ backgroundImage: "url('src/front/img/entrenador-personal-profesional.jpg')" }}>
-      <div className="text-center mt-5">
-        <h1>MEJORA TU CUERPO AL MÁXIMO</h1>
-        <h2>Los ganadores se ponen METAS, los perdedores EXCUSAS.</h2>
-        <h2>NO PAIN NO GAIN</h2>
-        <img src="src/front/img/image.png" />
+    <div className="home">
+      <button
+        arowArowClassName="button-2"
+        buttonLink="default"
+        className="button-instance"
+        divClassName="design-component-instance-node"
+        focus="default"
+        iconLeft={false}
+        roundness="modern"
+        size="large"
+        variant="default"
+      >Empezar</button>
+      <div className="frame">
+        <p className="text-wrapper">MEJORA TU CUERPO AL MÁXIMO</p>
+        <p className="text-line">
+          Los ganadores se ponen METAS, los perdedores EXCUSAS.
+          <br />
+          <br />
+          NO PAIN NO GAIN
+        </p>
       </div>
+      <img className="image" alt="Image" src="https://static.vecteezy.com/system/resources/previews/024/098/167/original/dumbbell-gym-tool-free-png.png" />
     </div>
-  )
-}
-
-export default Inicio
+  );
+};
