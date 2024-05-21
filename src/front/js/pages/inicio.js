@@ -1,21 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
+import styles from "../../styles/registro.module.css";
 import "../../styles/inicio.css";
 
 export const Inicio = () => {
   return (
     <div className="home">
-      <button
-        arowArowClassName="button-2"
-        buttonLink="default"
-        className="button-instance"
-        divClassName="design-component-instance-node"
-        focus="default"
-        iconLeft={false}
-        roundness="modern"
-        size="large"
-        variant="default"
-      >Empezar</button>
       <div className="frame">
         <p className="text-wrapper">MEJORA TU CUERPO AL MÁXIMO</p>
         <p className="text-line">
@@ -26,6 +17,9 @@ export const Inicio = () => {
         </p>
       </div>
       <img className="image" alt="Image" src="https://static.vecteezy.com/system/resources/previews/024/098/167/original/dumbbell-gym-tool-free-png.png" />
+      <Link to={"/registro"}>
+        <button type="submit" className="button-instance">Empezar  <i className="fas fa-long-arrow-alt-right"></i></button>
+      </Link>
     </div>
   );
 };
