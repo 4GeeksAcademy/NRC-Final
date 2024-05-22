@@ -11,6 +11,8 @@ import { Login } from "./pages/login";
 import { User } from "./pages/user";
 import { Admin } from "./pages/admin";
 import injectContext from "./store/appContext";
+import { SobreMi } from "./pages/sobreMi";
+
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -49,9 +51,9 @@ const Layout = () => {
                             <Route element={<Messages />} path="/inbox" />
                         </Route>
                         <Route element={<Registro />} path="/registro" />
+                        <Route element={<SobreMi />} path="/sobremi" />
                         <Route element={<Contact_form />} path="/contact" />
                         <Route element={<Login />} path="/login" />
-
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

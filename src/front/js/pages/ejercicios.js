@@ -42,10 +42,9 @@ export const Ejercicios = () => {
 
     if (musculo === "undefined" && ingredientes === "undefined") {
         return (
-            <div className={styles.imgfondo} style={{ backgroundImage: "url('https://s1.abcstatics.com/abc/www/multimedia/bienestar/2023/04/19/AdobeStock_90212267-RMyGoGaFY2Tan8BncOj0brL-1200x840@abc.jpg')" }}>
-                <div className="container">
+            <div className={styles.fondo}>
+            <div className="container">
                     <div className={styles.contenedor}>
-                        <img src="https://static.vecteezy.com/system/resources/previews/009/217/344/non_2x/nrc-letter-logo-design-on-black-background-nrc-creative-initials-letter-logo-concept-nrc-letter-design-vector.jpg" className={styles.logo} alt="img" />
                         <div className={styles.input}>
                             <div className="input-group mb-3">
                                 <select className="form-select" id="inputGroupSelect01" onChange={handleMusculoChange}>
@@ -69,7 +68,6 @@ export const Ejercicios = () => {
                                 <h1>Busca todo lo que necesites</h1>
                             </div>
                         </div>
-
                         <div className="row row-cols-1 row-cols-md-2 g-4">
                             <div className="col">
                                 <div className={styles.cardentreno} style={{ width: '25rem' }}>
@@ -94,9 +92,10 @@ export const Ejercicios = () => {
         );
     }
 
+/* EJERCICIOS/RECETAS/MODAL*/
     return (
-        <div className={styles.imgfondo} style={{ backgroundImage: "url('https://img.freepik.com/fotos-premium/sesion-fotos-profesional-gimnasio-totalmente-equipado-equipo-fitness-ia_894067-8719.jpg')" }}>
-        <div classNameName="container">
+        <div className={styles.fondo}>
+            <div classNameName="container">
                 <div className={styles.input3}>
                     <div className="input-group mb-3">
                         <select className="form-select" id="inputGroupSelect01" onChange={handleMusculoChange}>
@@ -147,10 +146,11 @@ export const Ejercicios = () => {
                                     </div>
                                 </div>
                             </div>
-                            
+
                         ))
-                    } 
+                    }
                 </div>
+
                 <div className="row row-cols-1 row-cols-md-3 g-4">
                     {
                         recetas.map((receta, index) => (
@@ -183,8 +183,8 @@ export const Ejercicios = () => {
                     }
                 </div>
             </div>
-            </div>
-            );
+        </div>
+    );
 };
 
 
