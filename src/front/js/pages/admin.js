@@ -6,6 +6,7 @@ import { Context } from "../store/appContext";
 
 import styles from "../../styles/admin.module.css";
 import AddContent from "../component/addComponent";
+import GCalendar from "../component/GCalendar";
 
 export const Admin = () => {
   const { store, actions } = useContext(Context);
@@ -24,9 +25,9 @@ export const Admin = () => {
 
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-8">
+    <div className="container-fluid" style={{ backgroundColor: '#0A0E1A'}}>
+      <div className="row ms-5">
+        <div className="col-md-6">
           <div className="text-center mt-5">
             <div className={styles.card1}>
               <div className={styles.titulo1}>
@@ -84,10 +85,10 @@ export const Admin = () => {
             </div>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-6 mt-5">
           <div className="text-center mt-5">
-            <div className={styles.calendario}>
-              <Calendly />
+            <div className="align-items-center">
+              <GCalendar />
             </div>
           </div>
         </div>

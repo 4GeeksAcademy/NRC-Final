@@ -5,7 +5,7 @@ import logo from "../../img/logo1.png"
 
 export const Footer = () => {
 	return (
-		<footer style={{ backgroundColor: '#0A0E1A', color: 'white' }}>
+		<footer className='footer mt-auto py-3 text-center footerDiv' style={{ backgroundColor: '#0A0E1A', color: 'white' }}>
 			<div className="container-fluid">
 				<div className="row mb-3">
 					<div className="col text-end">
@@ -15,7 +15,7 @@ export const Footer = () => {
 				<div className="row mb-3">
 					<div className='col-6 align-items-center justify-content-center gap-2'>
 						<div className="d-inline-flex gap-1 offset-md-2">
-							<a className="btn text-light ms-15" data-bs-toggle="collapse" href="#team" role="button" aria-expanded="false" aria-controls="team">About Website<IoMdArrowDropdown size={30}/></a>
+							<a className="btn text-light ms-15" data-bs-toggle="collapse" href="#team" role="button" aria-expanded="false" aria-controls="team">About Website<IoMdArrowDropdown className='text-warning' size={30}/></a>
 						</div>
 						<div className="row">
 							<div className="col offset-md-2">
@@ -29,7 +29,7 @@ export const Footer = () => {
 							</div>
 						</div>
 						<p className="d-inline-flex gap-1 offset-md-2">
-							<a className="btn text-light" data-bs-toggle="collapse" href="#web" role="button" aria-expanded="false" aria-controls="web">Contact<IoMdArrowDropdown size={30}/></a>
+							<a className="btn text-light" data-bs-toggle="collapse" href="#web" role="button" aria-expanded="false" aria-controls="web">Contact<IoMdArrowDropdown className='text-warning' size={30}/></a>
 						</p>
 						<div className="row">
 							<div className="col offset-md-2">
@@ -41,7 +41,7 @@ export const Footer = () => {
 							</div>
 						</div>
 					</div>
-					<div className="col-6 d-flex align-items-center justify-content-center gap-2">
+					<div className="col-6 d-flex align-items-center justify-content-center gap-2 text-warning">
 						<FaTwitter size={30} />
 						<FaYoutube size={30} />
 						<FaFacebook size={30} />

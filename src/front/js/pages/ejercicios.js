@@ -68,7 +68,7 @@ export const Ejercicios = () => {
                                 <h1>Busca todo lo que necesites</h1>
                             </div>
                         </div>
-                        <div className="row row-cols-1 row-cols-md-2 g-4">
+                        <div className="row row-cols-1 row-cols-md-2 g-4 d-flex justify-contet-center">
                             <div className="col">
                                 <div className={styles.cardentreno} style={{ width: '25rem' }}>
                                     <img src="https://media.revistagq.com/photos/5ecea90bd6d588d6f671d17c/16:9/w_2240,c_limit/ejercicios-comba.jpg" className="card-img-top" alt="..." />
