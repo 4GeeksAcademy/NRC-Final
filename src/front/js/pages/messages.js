@@ -25,7 +25,7 @@ const Messages = () => {
 
     return (
         <>
-            <div className=" text-center mt-5 mx-5">
+            <div className={`text-center ${styles.formBack} `}>
                 <h2 className="mb-3 text-light">Mensajes</h2>
                 <div className="container">
                     <div className='row'>
