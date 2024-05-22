@@ -14,7 +14,8 @@
     background: linear-gradient(to right, rgba(247, 109, 34, 0.801), #1c1c1c, #0a102463);
     width: 80%;
     height: 20rem;
-    margin: 5%;
+    margin: 12%;
+    margin-top: 8%;
     text-align: center;
     color: white;
     font-family: Montserrat;
@@ -24,8 +25,8 @@
 .cardentreno,
 .cardnutri {
     color: white;
-    margin-top: 30%;
-    margin-left: 40%;
+    margin-top: 40%;
+    margin-left: 20%;
     background: linear-gradient(to left, rgba(247, 109, 34, 0.801), #1c1c1c00, #1e2e644b);
 }
 
@@ -72,7 +73,7 @@
 
 .fondo {
     background: linear-gradient(180deg, rgb(10, 14, 28) 0%, rgb(37, 44, 68) 59.16%, rgb(10, 13, 23) 100%);
-    min-height: 130vh;
+    min-height: 100vh;
     height: 100%;
     display: flex;
 }

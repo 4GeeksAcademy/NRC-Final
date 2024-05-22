@@ -62,8 +62,8 @@ export const Login = () => {
                                 onChange={(e) => { setUser({ ...user, password: e.target.value }) }}
                                 placeholder="Contraseña" />
                         </div>
-                        <button type="submit" className={styles.button} onClick={handleLogin}>Submit</button>
-                        <Link to="/login">
+                        <button type="submit" className={styles.button} onClick={handleLogin}>Acceder <i className="fas fa-long-arrow-alt-right"></i></button>
+                        <Link to="/registro">
                             <div className={styles.noUser}>¿No eres usuario? Registrate</div>
                         </Link>
                     </form>

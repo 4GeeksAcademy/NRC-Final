@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 
 import { Inicio } from "./inicio";
 import { Servicios } from "./servicios";
+import { SobreMi } from "./sobreMi";
 
 import "../../styles/home.css";
 

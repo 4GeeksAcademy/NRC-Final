@@ -51,7 +51,7 @@ export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-dark navbar-expand-md bg-dark">
 			<div className="container-fluid">
-				<div>
+				<div style={{ width: '11%'}}>
 					<a className="navbar-brand ms-2 h2" onClick={() => navigate('/')}>
 						<img src={logo} alt="NRC Logo" style={{ width: '50px', height: 'auto' }} />
 					</a>
@@ -68,9 +68,6 @@ export const Navbar = () => {
 										<span className="navbar-brand h4 btn" onClick={() => navigate('/admin')}>Inicio</span>
 									</div>
 									<div className="col-2">
-										<span className="navbar-brand h4 btn" onClick={() => navigate('/contact')}>Contacto</span>
-									</div>
-									<div className="col-2">
 										<span className="navbar-brand h4 btn" onClick={() => navigate('/')}>Sobre mi</span>
 									</div>
 								</>
@@ -80,7 +77,7 @@ export const Navbar = () => {
 										<span className="navbar-brand h4 btn" onClick={() => navigate('/user')}>Inicio</span>
 									</div>
 									<div className="col-2">
-										<a className="navbar-brand h4 btn" href="#servicios">Servicios</a>
+										<span className="navbar-brand h4 btn" onClick={() => navigate('/ejercicio')}>Recursos</span>
 									</div>
 									<div className="col-2">
 										<span className="navbar-brand h4 btn" onClick={() => navigate('/contact')}>Contacto</span>
@@ -90,9 +87,6 @@ export const Navbar = () => {
 								<>
 									<div className="col-2">
 										<span className="navbar-brand h4 btn" onClick={() => navigate('/')}>Inicio</span>
-									</div>
-									<div className="col-2">
-										<a className="navbar-brand h4 btn" href="#servicios">Servicios</a>
 									</div>
 									<div className="col-2">
 										<span className="navbar-brand h4 btn" onClick={() => navigate('/contact')}>Contacto</span>
@@ -110,7 +104,7 @@ export const Navbar = () => {
 						<>
 							{userRole === 'admin' && (
 								<Link to="/inbox">
-									<button className={`btn me-2 px-4 ${styles.registerButton}`}>Inbox</button>
+									<button className={`btn me-2 px-4 ${styles.registerButton}`}>Buzón</button>
 								</Link>
 							)}
 							{userRole === 'user' && (
@@ -119,7 +113,7 @@ export const Navbar = () => {
 									<PerfilModal userRole={userRole} />
 								</>
 							)}
-							<button className={`btn me-2 px-4 ${styles.loginButton}`} onClick={logout}>Logout</button>
+							<button className={`btn me-2 px-4 ${styles.loginButton}`} onClick={logout}>Salir</button>
 						</>
 					) : (
 						<>
@@ -127,7 +121,7 @@ export const Navbar = () => {
 								<button className={`btn me-3 ${styles.registerButton}`}>Registro</button>
 							</Link>
 							<Link to="/login">
-								<button className={`btn me-2 px-4 ${styles.loginButton}`}>Login</button>
+								<button className={`btn me-2 px-4 ${styles.loginButton}`}>Acceder</button>
 							</Link>
 						</>
 					)}
