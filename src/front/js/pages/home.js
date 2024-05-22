@@ -14,9 +14,12 @@ import "../../styles/home.css";
 export const Home = () => {
 
 	return (
-		<div>
+		<div className="fondo-home">
 			<Inicio />
-			<Servicios />
+			<hr className="linea-home" />
+			<div id="servicios">
+				<Servicios />
+			</div>
 		</div>
 	);
 };
