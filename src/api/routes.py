@@ -20,3 +20,40 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+@api.route('/user', methods=['POST'])
+def add_user():
+    data = request.get_json()
+    if 'email' not in data or 'password' not in data:
+        raise APIException('all fields are required', status_code=400)
+
+    new_user = User(
+            email=data['email'], 
+            password=data['password'], 
+            rol=data['rol','user'],
+            is_active=data.get('is_active',True)
+    )
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    return jsonify({'message': 'User added'}), 201 
+
+@api.route('/user', methods=['GET'])
+def get_user():
+    users = User.query.all()
+    user_json = [user.serialize() for user in users]
+
+    return jsonify(user_json), 200
+
+@api.route('/user/<int:user_id>', methods=['DELETE'])
+def delete_user(user_id):
+    try:
+        user = User.query.get(user_id)
+        db.session.delete(user)
+        db.session.commit()
+        return jsonify({'message': 'Favorite character erased'})
+    except Exception as e:
+        db.session.rollback()
+        raise APIException('error', status_code=500)
+    

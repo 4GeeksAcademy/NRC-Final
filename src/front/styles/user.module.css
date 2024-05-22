@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+
+
+.card,
+.card1 {
+    width: 600px;
+    height: 300px;
+    border-radius: 40px;
+}
+
+
+.card {
+    background: linear-gradient(to top, rgba(214, 102, 41, 0.61), #1c1c1c58, #0a0e1a2b);
+
+}
+
+
+.card1 {
+    background: linear-gradient(to right, rgba(214, 102, 41, 0.574), #1c1c1cfb, #0a0e1a7e);
+    margin-top: 20%;
+}
+
+
+.titulo1,
+.titulo {
+    font-family: Montserrat;
+    color: white;
+    margin-bottom: 10%;
+    padding-top: 3%;
+}
+
+
+
+.targeta {
+    color: white;
+    max-width: 15rem;
+    margin-left: 10%;
+    margin-top: -170px;
+    display: flex;
+    align-items: center;
+}
+
+
+.boton {
+    margin-top: 5px;
+    border-radius: 25px;
+    background-color: #f76d22cc;
+    color: #fff;
+    font-family: Montserrat;
+
+}
+
+.imagen {
+    max-width: 40%;
+    margin-left: 50%;
+    margin-top: 2%;
+    border-radius: 10%;
+}
+
+.videos {
+    color: white;
+    margin-top: 3%;
+}
+
+.fondo {
+    background: linear-gradient(180deg, #0a0e1c, #252c44 50%, #0a0d17 82%);
+
+}
+
+@media (max-width: 576px) {
+
+    .card,
+    .card1 {
+        width: 100%;
+    }
+
+    .titulo1,
+    .titulo {
+        font-size: 1em;
+    }
+
+    .calendario {
+        margin-top: 90%;
+    }
+
+    .targeta {
+       padding-top: 10%;
+        width: 40%;
+    }
+
+    .imagen {
+        margin-top: 20%;
+    }
+
+    
+}

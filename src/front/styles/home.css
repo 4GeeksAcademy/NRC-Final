@@ -5,3 +5,14 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+
+.fondo-home {
+    background: linear-gradient(180deg, rgb(10, 14, 28) 0%, rgb(37, 44, 68) 59.16%, rgb(10, 13, 23) 100%);
+}
+
+.linea-home {
+    color: #fb6514;
+    opacity: 1;
+    height: 5px !important;
+    margin: 0;
+  }

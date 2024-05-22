@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+
+.formBack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgb(10, 14, 28) 0%, rgb(37, 44, 68) 59.16%, rgb(10, 13, 23) 100%);
+  background-size: cover;
+  min-height: 88vh;
+  width: 100%;
+  height: 100%;
+  padding: 20px; 
+  box-sizing: border-box;
+}
+
+
+.camposContact{
+  top: 131px;
+  left: 158px;
+  border-radius: 40px;
+  background-color:white;
+  border: 1px solid #ff730e;
+  box-sizing: border-box;
+  width: 920px;
+  height: 50px;
+  padding-top: 10px;
+  margin-top: 50px;
+}
+
+.commentContact{
+  top: 131px;
+  left: 158px;
+  border-radius: 25px;
+  background-color:white;
+  border: 1px solid #ff730e;
+  box-sizing: border-box;
+  width: 920px;
+  padding: 3px;
+  margin-top: 90px; 
+}
+
+.button {
+  border-radius: 25px;
+  background-color: #fb6514;
+  width: 200px;
+  height: 49px;
+  color: #fff;
+  font-family: Montserrat;
+}
+
+.formBody {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;    
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  text-align: center;
+  color: white;
+  font-family: Montserrat;
+}
+
+.formulario_contacto{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1000px;
+  border-radius: 40px;
+  background: linear-gradient(rgba(214, 101, 41, 0.678), #1c1c1c, rgba(255, 255, 255, 0.05));
+}
+
+
+
+.formInput{
+  width: 900px;
+  margin-left: 0px;
+  border: none;
+  outline: none;
+}
+
+.formInputComment{
+  width: 900px;
+  margin-left: 0px;
+  border: none;
+  resize: none;
+  border-radius: 25px;
+  outline: none;
+}
+
+@media screen and (max-width: 830px) {
+  .camposContact,
+  .commentContact{
+    width: 310px;
+  }
+
+  .formulario_contacto{
+    width: 330px;
+  }
+
+  .formInput,
+  .formInputComment{
+    width: 290px;
+  }
+
+  .formBody{
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .camposContact,
+  .commentContact{
+    width: 290px;
+  }
+
+  .formulario_contacto{
+    width: 310px;
+  }
+
+  .formInput,
+  .formInputComment{
+    width: 270px;
+  }
+
+}
+
+
+
