@@ -20,7 +20,7 @@ export const User = () => {
     const [videos, setVideos] = useState([]);
 
     useEffect(() => {
-        fetch('https://glorious-guacamole-4jw4vwp5jvr3776w-3001.app.github.dev/video/')
+        fetch(`${process.env.BACKEND_URL}/video`)
             .then(response => response.json())
             .then(data => setVideos(data))
             .catch(error => console.error('Error fetching videos:', error));
@@ -66,7 +66,7 @@ export const User = () => {
     );
 
     return (
-        <div className={styles.imgfondo} style={{ backgroundImage: "url('https://s1.abcstatics.com/abc/www/multimedia/bienestar/2023/04/19/AdobeStock_90212267-RMyGoGaFY2Tan8BncOj0brL-1200x840@abc.jpg')" }}>
+        <div className={styles.fondo}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-8">
@@ -83,7 +83,9 @@ export const User = () => {
                                         <div className={styles.card1}>
                                             <div className={styles.titulo1}>
                                                 <h2>NUTRICIÓN Y ENTRENO</h2>
+                                                <div className="container">
                                                 <img src="https://cdn.euroinnova.edu.es/img/subidasEditor/funciones%20(55)-1617716195.webp" alt="Descripción de la imagen" className={styles.imagen} />
+                                                </div>
                                                 <div className={styles.targeta}>
                                                     <div className="card" style={{ backgroundColor: "#1c1c1c" }}>
                                                         <div className="card-header">
@@ -113,6 +115,7 @@ export const User = () => {
                 </div>
             </div>
         </div>
+      
     );
 };
 

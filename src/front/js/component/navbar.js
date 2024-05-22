@@ -98,7 +98,7 @@ export const Navbar = () => {
 										<span className="navbar-brand h4 btn" onClick={() => navigate('/contact')}>Contacto</span>
 									</div>
 									<div className="col-2">
-										<span className="navbar-brand h4 btn" onClick={() => navigate('/')}>Sobre mi</span>
+										<span className="navbar-brand h4 btn" onClick={() => navigate('/sobremi')}>Sobre mi</span>
 									</div>
 								</>
 							)}
